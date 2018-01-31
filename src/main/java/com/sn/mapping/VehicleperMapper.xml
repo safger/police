@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.VehicleperMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.Vehicleper" >
+    <id column="License" property="license" jdbcType="VARCHAR" />
+        <result property="card" column="CARD"  jdbcType="VARCHAR" />
+        <result property="licensecolor" column="LICENSECOLOR"  jdbcType="VARCHAR" />
+        <result property="carcolor" column="CARCOLOR"  jdbcType="VARCHAR" />
+        <result property="owner" column="OWNER"  jdbcType="VARCHAR" />
+        <result property="phone" column="PHONE"  jdbcType="VARCHAR" />
+        <result property="department" column="DEPARTMENT"  jdbcType="VARCHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         LICENSE ,
+         CARD ,
+         LICENSECOLOR ,
+         CARCOLOR ,
+         OWNER ,
+         PHONE ,
+         DEPARTMENT 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from BU_VEHICLEPER
+		      where 
+		        LICENSE = #{license,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from BU_VEHICLEPER
+    	where 
+		        LICENSE = #{license,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.Vehicleper" >
+    
+         insert into BU_VEHICLEPER ( 
+         		LICENSE , 
+         	          		CARD , 
+         	          		LICENSECOLOR , 
+         	          		CARCOLOR , 
+         	          		OWNER , 
+         	          		PHONE , 
+         	          		DEPARTMENT  
+         	 )
+   	 	values (
+   	 		#{license,jdbcType=VARCHAR} , 
+   	 	   	 		#{card,jdbcType=VARCHAR} , 
+   	 	   	 		#{licensecolor,jdbcType=VARCHAR} , 
+   	 	   	 		#{carcolor,jdbcType=VARCHAR} , 
+   	 	   	 		#{owner,jdbcType=VARCHAR} , 
+   	 	   	 		#{phone,jdbcType=VARCHAR} , 
+   	 	   	 		#{department,jdbcType=VARCHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.Vehicleper">
+  	  insert into  BU_VEHICLEPER
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="license != null" >
+  	 	  LICENSE ,  
+  	  	</if>
+  	  	<if test="card != null" >
+  	 	  CARD ,  
+  	  	</if>
+  	  	<if test="licensecolor != null" >
+  	 	  LICENSECOLOR ,  
+  	  	</if>
+  	  	<if test="carcolor != null" >
+  	 	  CARCOLOR ,  
+  	  	</if>
+  	  	<if test="owner != null" >
+  	 	  OWNER ,  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 	  PHONE ,  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 	  DEPARTMENT   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="license != null" >
+        	#{license,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="card != null" >
+        	#{card,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="licensecolor != null" >
+        	#{licensecolor,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="carcolor != null" >
+        	#{carcolor,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="owner != null" >
+        	#{owner,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="phone != null" >
+        	#{phone,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="department != null" >
+        	#{department,jdbcType=VARCHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.Vehicleper" >
+    update  BU_VEHICLEPER
+    <set >
+    	<if test="card != null" >
+        	  CARD=#{card,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="licensecolor != null" >
+        	  LICENSECOLOR=#{licensecolor,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="carcolor != null" >
+        	  CARCOLOR=#{carcolor,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="owner != null" >
+        	  OWNER=#{owner,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="phone != null" >
+        	  PHONE=#{phone,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="department != null" >
+        	  DEPARTMENT=#{department,jdbcType=VARCHAR}  
+       </if>
+ 	 </set>
+    where  
+		        LICENSE = #{license,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.Vehicleper" >
+    update BU_VEHICLEPER
+    set 
+        	  CARD=#{card,jdbcType=VARCHAR} , 
+        	  LICENSECOLOR=#{licensecolor,jdbcType=VARCHAR} , 
+        	  CARCOLOR=#{carcolor,jdbcType=VARCHAR} , 
+        	  OWNER=#{owner,jdbcType=VARCHAR} , 
+        	  PHONE=#{phone,jdbcType=VARCHAR} , 
+        	  DEPARTMENT=#{department,jdbcType=VARCHAR}  
+      where  
+		        LICENSE = #{license,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.Vehicleper" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_VEHICLEPER
+   <where>  
+  	  	<if test="license != null" >
+  	 		       LICENSE  = #{license}  
+  	  	</if>
+  	  	<if test="card != null" >
+  	 		   and    CARD  = #{card}  
+  	  	</if>
+  	  	<if test="licensecolor != null" >
+  	 		   and    LICENSECOLOR  = #{licensecolor}  
+  	  	</if>
+  	  	<if test="carcolor != null" >
+  	 		   and    CARCOLOR  = #{carcolor}  
+  	  	</if>
+  	  	<if test="owner != null" >
+  	 		   and    OWNER  = #{owner}  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 		   and    PHONE  = #{phone}  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 		   and    DEPARTMENT  = #{department}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.Vehicleper">  
+    DELETE FROM BU_VEHICLEPER  
+      <where>  
+  	  	<if test="license != null" >
+  	 		       LICENSE  = #{license}  
+  	  	</if>
+  	  	<if test="card != null" >
+  	 		   and    CARD  = #{card}  
+  	  	</if>
+  	  	<if test="licensecolor != null" >
+  	 		   and    LICENSECOLOR  = #{licensecolor}  
+  	  	</if>
+  	  	<if test="carcolor != null" >
+  	 		   and    CARCOLOR  = #{carcolor}  
+  	  	</if>
+  	  	<if test="owner != null" >
+  	 		   and    OWNER  = #{owner}  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 		   and    PHONE  = #{phone}  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 		   and    DEPARTMENT  = #{department}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  BU_VEHICLEPER WHERE 
+		        LICENSE 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.Vehicleper" >
+select count(*) from BU_VEHICLEPER
+ <where>  
+  	  	<if test="license != null" >
+  	 		       LICENSE  = #{license}  
+  	  	</if>
+  	  	<if test="card != null" >
+  	 		   and    CARD  = #{card}  
+  	  	</if>
+  	  	<if test="licensecolor != null" >
+  	 		   and    LICENSECOLOR  = #{licensecolor}  
+  	  	</if>
+  	  	<if test="carcolor != null" >
+  	 		   and    CARCOLOR  = #{carcolor}  
+  	  	</if>
+  	  	<if test="owner != null" >
+  	 		   and    OWNER  = #{owner}  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 		   and    PHONE  = #{phone}  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 		   and    DEPARTMENT  = #{department}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from BU_VEHICLEPER 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from BU_VEHICLEPER where  
+     #{0}   LIKE '%'|| #{1}||'%'    
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.Vehicleper" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_VEHICLEPER
+      <where>  
+		 
+  	  	</where>
+	</select>
+	
+</mapper>

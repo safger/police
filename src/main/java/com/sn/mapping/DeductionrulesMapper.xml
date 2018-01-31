@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.DeductionrulesMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.Deductionrules" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="title" column="TITLE"  jdbcType="VARCHAR" />
+        <result property="regulations" column="REGULATIONS"  jdbcType="VARCHAR" />
+        <result property="score" column="SCORE"  jdbcType="VARCHAR" />
+        <result property="content" column="CONTENT"  jdbcType="VARCHAR" />
+        <result property="createdate" column="CREATEDATE"  jdbcType="TIMESTAMP" />
+        <result property="modifydate" column="MODIFYDATE"  jdbcType="TIMESTAMP" />
+        <result property="sortcode" column="SORTCODE"  jdbcType="DECIMAL" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         TITLE ,
+         REGULATIONS ,
+         SCORE ,
+         CONTENT ,
+         CREATEDATE ,
+         MODIFYDATE ,
+         SORTCODE 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from BU_DEDUCTIONRULES
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from BU_DEDUCTIONRULES
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.Deductionrules" >
+    
+         insert into BU_DEDUCTIONRULES ( 
+         		FUID , 
+         	          		TITLE , 
+         	          		REGULATIONS , 
+         	          		SCORE , 
+         	          		CONTENT , 
+         	          		CREATEDATE , 
+         	          		MODIFYDATE , 
+         	          		SORTCODE  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{title,jdbcType=VARCHAR} , 
+   	 	   	 		#{regulations,jdbcType=VARCHAR} , 
+   	 	   	 		#{score,jdbcType=VARCHAR} , 
+   	 	   	 		#{content,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{modifydate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{sortcode,jdbcType=DECIMAL}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.Deductionrules">
+  	  insert into  BU_DEDUCTIONRULES
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="title != null" >
+  	 	  TITLE ,  
+  	  	</if>
+  	  	<if test="regulations != null" >
+  	 	  REGULATIONS ,  
+  	  	</if>
+  	  	<if test="score != null" >
+  	 	  SCORE ,  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 	  CONTENT ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  CREATEDATE ,  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 	  MODIFYDATE ,  
+  	  	</if>
+  	  	<if test="sortcode != null" >
+  	 	  SORTCODE   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="title != null" >
+        	#{title,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="regulations != null" >
+        	#{regulations,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="score != null" >
+        	#{score,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="content != null" >
+        	#{content,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifydate != null" >
+        	#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="sortcode != null" >
+        	#{sortcode,jdbcType=DECIMAL}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.Deductionrules" >
+    update  BU_DEDUCTIONRULES
+    <set >
+    	<if test="title != null" >
+        	  TITLE=#{title,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="regulations != null" >
+        	  REGULATIONS=#{regulations,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="score != null" >
+        	  SCORE=#{score,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="content != null" >
+        	  CONTENT=#{content,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifydate != null" >
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="sortcode != null" >
+        	  SORTCODE=#{sortcode,jdbcType=DECIMAL}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.Deductionrules" >
+    update BU_DEDUCTIONRULES
+    set 
+        	  TITLE=#{title,jdbcType=VARCHAR} , 
+        	  REGULATIONS=#{regulations,jdbcType=VARCHAR} , 
+        	  SCORE=#{score,jdbcType=VARCHAR} , 
+        	  CONTENT=#{content,jdbcType=VARCHAR} , 
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+        	  SORTCODE=#{sortcode,jdbcType=DECIMAL}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.Deductionrules" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_DEDUCTIONRULES
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="title != null" >
+  	 		   and    TITLE  = #{title}  
+  	  	</if>
+  	  	<if test="regulations != null" >
+  	 		   and    REGULATIONS  = #{regulations}  
+  	  	</if>
+  	  	<if test="score != null" >
+  	 		   and    SCORE  = #{score}  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 		   and    CONTENT  = #{content}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="sortcode != null" >
+  	 		   and    SORTCODE  = #{sortcode}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.Deductionrules">  
+    DELETE FROM BU_DEDUCTIONRULES  
+      <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="title != null" >
+  	 		   and    TITLE  = #{title}  
+  	  	</if>
+  	  	<if test="regulations != null" >
+  	 		   and    REGULATIONS  = #{regulations}  
+  	  	</if>
+  	  	<if test="score != null" >
+  	 		   and    SCORE  = #{score}  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 		   and    CONTENT  = #{content}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="sortcode != null" >
+  	 		   and    SORTCODE  = #{sortcode}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  BU_DEDUCTIONRULES WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.Deductionrules" >
+select count(*) from BU_DEDUCTIONRULES
+ <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="title != null" >
+  	 		   and    TITLE  = #{title}  
+  	  	</if>
+  	  	<if test="regulations != null" >
+  	 		   and    REGULATIONS  = #{regulations}  
+  	  	</if>
+  	  	<if test="score != null" >
+  	 		   and    SCORE  = #{score}  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 		   and    CONTENT  = #{content}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="sortcode != null" >
+  	 		   and    SORTCODE  = #{sortcode}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from BU_DEDUCTIONRULES 
+</select>
+
+  <!--   自定义方法区域 -->
+   
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from BU_DEDUCTIONRULES where  
+     #{0}   LIKE '%'|| #{1}||'%'    
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.Deductionrules" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_DEDUCTIONRULES
+      <where>  
+		 	<if test="title != null" > 
+  	 		        TITLE  like  '%'|| #{title}||'%'   or CONTENT like  '%'|| #{title}||'%' 
+  	  	</if>
+  	  	</where>
+	</select>
+</mapper>

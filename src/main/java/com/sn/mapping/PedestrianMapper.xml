@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.PedestrianMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.Pedestrian" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="eventname" column="EVENTNAME"  jdbcType="VARCHAR" />
+        <result property="eventtime" column="EVENTTIME"  jdbcType="TIMESTAMP" />
+        <result property="card" column="CARD"  jdbcType="VARCHAR" />
+        <result property="personid" column="PERSONID"  jdbcType="DECIMAL" />
+        <result property="personname" column="PERSONNAME"  jdbcType="VARCHAR" />
+        <result property="deptid" column="DEPTID"  jdbcType="VARCHAR" />
+        <result property="deptname" column="DEPTNAME"  jdbcType="VARCHAR" />
+        <result property="deptcode" column="DEPTCODE"  jdbcType="VARCHAR" />
+        <result property="doorname" column="DOORNAME"  jdbcType="VARCHAR" />
+        <result property="createdate" column="CREATEDATE"  jdbcType="TIMESTAMP" />
+        <result property="devicename" column="DEVICENAME"  jdbcType="VARCHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         EVENTNAME ,
+         EVENTTIME ,
+         CARD ,
+         PERSONID ,
+         PERSONNAME ,
+         DEPTID ,
+         DEPTNAME ,
+         DEPTCODE ,
+         DOORNAME ,
+         CREATEDATE ,
+         DEVICENAME 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from BU_PEDESTRIAN
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from BU_PEDESTRIAN
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.Pedestrian" >
+    
+         insert into BU_PEDESTRIAN ( 
+         		FUID , 
+         	          		EVENTNAME , 
+         	          		EVENTTIME , 
+         	          		CARD , 
+         	          		PERSONID , 
+         	          		PERSONNAME , 
+         	          		DEPTID , 
+         	          		DEPTNAME , 
+         	          		DEPTCODE , 
+         	          		DOORNAME , 
+         	          		CREATEDATE , 
+         	          		DEVICENAME  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{eventname,jdbcType=VARCHAR} , 
+   	 	   	 		#{eventtime,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{card,jdbcType=VARCHAR} , 
+   	 	   	 		#{personid,jdbcType=DECIMAL} , 
+   	 	   	 		#{personname,jdbcType=VARCHAR} , 
+   	 	   	 		#{deptid,jdbcType=VARCHAR} , 
+   	 	   	 		#{deptname,jdbcType=VARCHAR} , 
+   	 	   	 		#{deptcode,jdbcType=VARCHAR} , 
+   	 	   	 		#{doorname,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{devicename,jdbcType=VARCHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.Pedestrian">
+  	  insert into  BU_PEDESTRIAN
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="eventname != null" >
+  	 	  EVENTNAME ,  
+  	  	</if>
+  	  	<if test="eventtime != null" >
+  	 	  EVENTTIME ,  
+  	  	</if>
+  	  	<if test="card != null" >
+  	 	  CARD ,  
+  	  	</if>
+  	  	<if test="personid != null" >
+  	 	  PERSONID ,  
+  	  	</if>
+  	  	<if test="personname != null" >
+  	 	  PERSONNAME ,  
+  	  	</if>
+  	  	<if test="deptid != null" >
+  	 	  DEPTID ,  
+  	  	</if>
+  	  	<if test="deptname != null" >
+  	 	  DEPTNAME ,  
+  	  	</if>
+  	  	<if test="deptcode != null" >
+  	 	  DEPTCODE ,  
+  	  	</if>
+  	  	<if test="doorname != null" >
+  	 	  DOORNAME ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  CREATEDATE ,  
+  	  	</if>
+  	  	<if test="devicename != null" >
+  	 	  DEVICENAME   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="eventname != null" >
+        	#{eventname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="eventtime != null" >
+        	#{eventtime,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="card != null" >
+        	#{card,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="personid != null" >
+        	#{personid,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="personname != null" >
+        	#{personname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="deptid != null" >
+        	#{deptid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="deptname != null" >
+        	#{deptname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="deptcode != null" >
+        	#{deptcode,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="doorname != null" >
+        	#{doorname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="devicename != null" >
+        	#{devicename,jdbcType=VARCHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.Pedestrian" >
+    update  BU_PEDESTRIAN
+    <set >
+    	<if test="eventname != null" >
+        	  EVENTNAME=#{eventname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="eventtime != null" >
+        	  EVENTTIME=#{eventtime,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="card != null" >
+        	  CARD=#{card,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="personid != null" >
+        	  PERSONID=#{personid,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="personname != null" >
+        	  PERSONNAME=#{personname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="deptid != null" >
+        	  DEPTID=#{deptid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="deptname != null" >
+        	  DEPTNAME=#{deptname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="deptcode != null" >
+        	  DEPTCODE=#{deptcode,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="doorname != null" >
+        	  DOORNAME=#{doorname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="devicename != null" >
+        	  DEVICENAME=#{devicename,jdbcType=VARCHAR}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.Pedestrian" >
+    update BU_PEDESTRIAN
+    set 
+        	  EVENTNAME=#{eventname,jdbcType=VARCHAR} , 
+        	  EVENTTIME=#{eventtime,jdbcType=TIMESTAMP} , 
+        	  CARD=#{card,jdbcType=VARCHAR} , 
+        	  PERSONID=#{personid,jdbcType=DECIMAL} , 
+        	  PERSONNAME=#{personname,jdbcType=VARCHAR} , 
+        	  DEPTID=#{deptid,jdbcType=VARCHAR} , 
+        	  DEPTNAME=#{deptname,jdbcType=VARCHAR} , 
+        	  DEPTCODE=#{deptcode,jdbcType=VARCHAR} , 
+        	  DOORNAME=#{doorname,jdbcType=VARCHAR} , 
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+        	  DEVICENAME=#{devicename,jdbcType=VARCHAR}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.Pedestrian" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_PEDESTRIAN
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="eventname != null" >
+  	 		   and    EVENTNAME  = #{eventname}  
+  	  	</if>
+  	  	<if test="eventtime != null" >
+  	 		   and    EVENTTIME  = #{eventtime}  
+  	  	</if>
+  	  	<if test="card != null" >
+  	 		   and    CARD  = #{card}  
+  	  	</if>
+  	  	<if test="personid != null" >
+  	 		   and    PERSONID  = #{personid}  
+  	  	</if>
+  	  	<if test="personname != null" >
+  	 		   and    PERSONNAME  = #{personname}  
+  	  	</if>
+  	  	<if test="deptid != null" >
+  	 		   and    DEPTID  = #{deptid}  
+  	  	</if>
+  	  	<if test="deptname != null" >
+  	 		   and    DEPTNAME  = #{deptname}  
+  	  	</if>
+  	  	<if test="deptcode != null" >
+  	 		   and    DEPTCODE  = #{deptcode}  
+  	  	</if>
+  	  	<if test="doorname != null" >
+  	 		   and    DOORNAME  = #{doorname}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="devicename != null" >
+  	 		   and    DEVICENAME  = #{devicename}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.Pedestrian">  
+    DELETE FROM BU_PEDESTRIAN  
+      <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="eventname != null" >
+  	 		   and    EVENTNAME  = #{eventname}  
+  	  	</if>
+  	  	<if test="eventtime != null" >
+  	 		   and    EVENTTIME  = #{eventtime}  
+  	  	</if>
+  	  	<if test="card != null" >
+  	 		   and    CARD  = #{card}  
+  	  	</if>
+  	  	<if test="personid != null" >
+  	 		   and    PERSONID  = #{personid}  
+  	  	</if>
+  	  	<if test="personname != null" >
+  	 		   and    PERSONNAME  = #{personname}  
+  	  	</if>
+  	  	<if test="deptid != null" >
+  	 		   and    DEPTID  = #{deptid}  
+  	  	</if>
+  	  	<if test="deptname != null" >
+  	 		   and    DEPTNAME  = #{deptname}  
+  	  	</if>
+  	  	<if test="deptcode != null" >
+  	 		   and    DEPTCODE  = #{deptcode}  
+  	  	</if>
+  	  	<if test="doorname != null" >
+  	 		   and    DOORNAME  = #{doorname}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="devicename != null" >
+  	 		   and    DEVICENAME  = #{devicename}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  BU_PEDESTRIAN WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.Pedestrian" >
+select count(*) from BU_PEDESTRIAN
+ <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="eventname != null" >
+  	 		   and    EVENTNAME  = #{eventname}  
+  	  	</if>
+  	  	<if test="eventtime != null" >
+  	 		   and    EVENTTIME  = #{eventtime}  
+  	  	</if>
+  	  	<if test="card != null" >
+  	 		   and    CARD  = #{card}  
+  	  	</if>
+  	  	<if test="personid != null" >
+  	 		   and    PERSONID  = #{personid}  
+  	  	</if>
+  	  	<if test="personname != null" >
+  	 		   and    PERSONNAME  = #{personname}  
+  	  	</if>
+  	  	<if test="deptid != null" >
+  	 		   and    DEPTID  = #{deptid}  
+  	  	</if>
+  	  	<if test="deptname != null" >
+  	 		   and    DEPTNAME  = #{deptname}  
+  	  	</if>
+  	  	<if test="deptcode != null" >
+  	 		   and    DEPTCODE  = #{deptcode}  
+  	  	</if>
+  	  	<if test="doorname != null" >
+  	 		   and    DOORNAME  = #{doorname}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="devicename != null" >
+  	 		   and    DEVICENAME  = #{devicename}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from BU_PEDESTRIAN 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from BU_PEDESTRIAN where  
+     #{0}   LIKE '%'|| #{1}||'%'    
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.Pedestrian" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_PEDESTRIAN
+      <where>  
+      			<if test="personname != null" >
+  	 		        PERSONNAME  LIKE '%'|| #{personname}   ||'%'    
+  	  			</if>
+		 	 
+  	  		<if test="eventtime != null" >
+  	 		   and    EVENTTIME  >=    #{eventtime}
+	  	  	</if> 
+	  	  	<if test="createdate != null" >
+  	 		   and    EVENTTIME   &lt;= #{createdate}  
+  	  		</if>
+  	  	</where>
+	</select>
+	
+</mapper>

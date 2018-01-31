@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.FvisitsMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.Fvisits" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="xno" column="XNO"  jdbcType="VARCHAR" />
+        <result property="fname" column="FNAME"  jdbcType="VARCHAR" />
+        <result property="household" column="HOUSEHOLD"  jdbcType="VARCHAR" />
+        <result property="adress" column="ADRESS"  jdbcType="VARCHAR" />
+        <result property="xcode" column="XCODE"  jdbcType="VARCHAR" />
+        <result property="pnumber" column="PNUMBER"  jdbcType="DECIMAL" />
+        <result property="purpose" column="PURPOSE"  jdbcType="VARCHAR" />
+        <result property="xdate" column="XDATE"  jdbcType="TIMESTAMP" />
+        <result property="xstatus" column="XSTATUS"  jdbcType="VARCHAR" />
+        <result property="xdays" column="XDAYS"  jdbcType="DECIMAL" />
+        <result property="rperson" column="RPERSON"  jdbcType="VARCHAR" />
+        <result property="fcontet" column="FCONTET"  jdbcType="CLOB" />
+        <result property="bstatus" column="BSTATUS"  jdbcType="VARCHAR" />
+        <result property="bdate" column="BDATE"  jdbcType="TIMESTAMP" />
+        <result property="contractors" column="CONTRACTORS"  jdbcType="VARCHAR" />
+        <result property="process" column="PROCESS"  jdbcType="CLOB" />
+        <result property="createdate" column="CREATEDATE"  jdbcType="TIMESTAMP" />
+        <result property="modifydate" column="MODIFYDATE"  jdbcType="TIMESTAMP" />
+        <result property="isreported" column="ISREPORTED"  jdbcType="DECIMAL" />
+        <result property="instructions" column="INSTRUCTIONS"  jdbcType="CLOB" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         XNO ,
+         FNAME ,
+         HOUSEHOLD ,
+         ADRESS ,
+         XCODE ,
+         PNUMBER ,
+         PURPOSE ,
+         XDATE ,
+         XSTATUS ,
+         XDAYS ,
+         RPERSON ,
+         FCONTET ,
+         BSTATUS ,
+         BDATE ,
+         CONTRACTORS ,
+         PROCESS ,
+         CREATEDATE ,
+         MODIFYDATE ,
+         ISREPORTED ,
+         INSTRUCTIONS 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from BU_FVISITS
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from BU_FVISITS
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.Fvisits" >
+    
+         insert into BU_FVISITS ( 
+         		FUID , 
+         	          		XNO , 
+         	          		FNAME , 
+         	          		HOUSEHOLD , 
+         	          		ADRESS , 
+         	          		XCODE , 
+         	          		PNUMBER , 
+         	          		PURPOSE , 
+         	          		XDATE , 
+         	          		XSTATUS , 
+         	          		XDAYS , 
+         	          		RPERSON , 
+         	          		FCONTET , 
+         	          		BSTATUS , 
+         	          		BDATE , 
+         	          		CONTRACTORS , 
+         	          		PROCESS , 
+         	          		CREATEDATE , 
+         	          		MODIFYDATE , 
+         	          		ISREPORTED , 
+         	          		INSTRUCTIONS  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{xno,jdbcType=VARCHAR} , 
+   	 	   	 		#{fname,jdbcType=VARCHAR} , 
+   	 	   	 		#{household,jdbcType=VARCHAR} , 
+   	 	   	 		#{adress,jdbcType=VARCHAR} , 
+   	 	   	 		#{xcode,jdbcType=VARCHAR} , 
+   	 	   	 		#{pnumber,jdbcType=DECIMAL} , 
+   	 	   	 		#{purpose,jdbcType=VARCHAR} , 
+   	 	   	 		#{xdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{xstatus,jdbcType=VARCHAR} , 
+   	 	   	 		#{xdays,jdbcType=DECIMAL} , 
+   	 	   	 		#{rperson,jdbcType=VARCHAR} , 
+   	 	   	 		#{fcontet,jdbcType=CLOB} , 
+   	 	   	 		#{bstatus,jdbcType=VARCHAR} , 
+   	 	   	 		#{bdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{contractors,jdbcType=VARCHAR} , 
+   	 	   	 		#{process,jdbcType=CLOB} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{modifydate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{isreported,jdbcType=DECIMAL} , 
+   	 	   	 		#{instructions,jdbcType=CLOB}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.Fvisits">
+  	  insert into  BU_FVISITS
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="xno != null" >
+  	 	  XNO ,  
+  	  	</if>
+  	  	<if test="fname != null" >
+  	 	  FNAME ,  
+  	  	</if>
+  	  	<if test="household != null" >
+  	 	  HOUSEHOLD ,  
+  	  	</if>
+  	  	<if test="adress != null" >
+  	 	  ADRESS ,  
+  	  	</if>
+  	  	<if test="xcode != null" >
+  	 	  XCODE ,  
+  	  	</if>
+  	  	<if test="pnumber != null" >
+  	 	  PNUMBER ,  
+  	  	</if>
+  	  	<if test="purpose != null" >
+  	 	  PURPOSE ,  
+  	  	</if>
+  	  	<if test="xdate != null" >
+  	 	  XDATE ,  
+  	  	</if>
+  	  	<if test="xstatus != null" >
+  	 	  XSTATUS ,  
+  	  	</if>
+  	  	<if test="xdays != null" >
+  	 	  XDAYS ,  
+  	  	</if>
+  	  	<if test="rperson != null" >
+  	 	  RPERSON ,  
+  	  	</if>
+  	  	<if test="fcontet != null" >
+  	 	  FCONTET ,  
+  	  	</if>
+  	  	<if test="bstatus != null" >
+  	 	  BSTATUS ,  
+  	  	</if>
+  	  	<if test="bdate != null" >
+  	 	  BDATE ,  
+  	  	</if>
+  	  	<if test="contractors != null" >
+  	 	  CONTRACTORS ,  
+  	  	</if>
+  	  	<if test="process != null" >
+  	 	  PROCESS ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  CREATEDATE ,  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 	  MODIFYDATE ,  
+  	  	</if>
+  	  	<if test="isreported != null" >
+  	 	  ISREPORTED ,  
+  	  	</if>
+  	  	<if test="instructions != null" >
+  	 	  INSTRUCTIONS   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="xno != null" >
+        	#{xno,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fname != null" >
+        	#{fname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="household != null" >
+        	#{household,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="adress != null" >
+        	#{adress,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="xcode != null" >
+        	#{xcode,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="pnumber != null" >
+        	#{pnumber,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="purpose != null" >
+        	#{purpose,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="xdate != null" >
+        	#{xdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="xstatus != null" >
+        	#{xstatus,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="xdays != null" >
+        	#{xdays,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="rperson != null" >
+        	#{rperson,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fcontet != null" >
+        	#{fcontet,jdbcType=CLOB} , 
+       </if>
+    	<if test="bstatus != null" >
+        	#{bstatus,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="bdate != null" >
+        	#{bdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="contractors != null" >
+        	#{contractors,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="process != null" >
+        	#{process,jdbcType=CLOB} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifydate != null" >
+        	#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="isreported != null" >
+        	#{isreported,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="instructions != null" >
+        	#{instructions,jdbcType=CLOB}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.Fvisits" >
+    update  BU_FVISITS
+    <set >
+    	<if test="xno != null" >
+        	  XNO=#{xno,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fname != null" >
+        	  FNAME=#{fname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="household != null" >
+        	  HOUSEHOLD=#{household,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="adress != null" >
+        	  ADRESS=#{adress,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="xcode != null" >
+        	  XCODE=#{xcode,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="pnumber != null" >
+        	  PNUMBER=#{pnumber,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="purpose != null" >
+        	  PURPOSE=#{purpose,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="xdate != null" >
+        	  XDATE=#{xdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="xstatus != null" >
+        	  XSTATUS=#{xstatus,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="xdays != null" >
+        	  XDAYS=#{xdays,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="rperson != null" >
+        	  RPERSON=#{rperson,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fcontet != null" >
+        	  FCONTET=#{fcontet,jdbcType=CLOB} , 
+       </if>
+    	<if test="bstatus != null" >
+        	  BSTATUS=#{bstatus,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="bdate != null" >
+        	  BDATE=#{bdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="contractors != null" >
+        	  CONTRACTORS=#{contractors,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="process != null" >
+        	  PROCESS=#{process,jdbcType=CLOB} , 
+       </if>
+    	<if test="createdate != null" >
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifydate != null" >
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="isreported != null" >
+        	  ISREPORTED=#{isreported,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="instructions != null" >
+        	  INSTRUCTIONS=#{instructions,jdbcType=CLOB}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.Fvisits" >
+    update BU_FVISITS
+    set 
+        	  XNO=#{xno,jdbcType=VARCHAR} , 
+        	  FNAME=#{fname,jdbcType=VARCHAR} , 
+        	  HOUSEHOLD=#{household,jdbcType=VARCHAR} , 
+        	  ADRESS=#{adress,jdbcType=VARCHAR} , 
+        	  XCODE=#{xcode,jdbcType=VARCHAR} , 
+        	  PNUMBER=#{pnumber,jdbcType=DECIMAL} , 
+        	  PURPOSE=#{purpose,jdbcType=VARCHAR} , 
+        	  XDATE=#{xdate,jdbcType=TIMESTAMP} , 
+        	  XSTATUS=#{xstatus,jdbcType=VARCHAR} , 
+        	  XDAYS=#{xdays,jdbcType=DECIMAL} , 
+        	  RPERSON=#{rperson,jdbcType=VARCHAR} , 
+        	  FCONTET=#{fcontet,jdbcType=CLOB} , 
+        	  BSTATUS=#{bstatus,jdbcType=VARCHAR} , 
+        	  BDATE=#{bdate,jdbcType=TIMESTAMP} , 
+        	  CONTRACTORS=#{contractors,jdbcType=VARCHAR} , 
+        	  PROCESS=#{process,jdbcType=CLOB} , 
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+        	  ISREPORTED=#{isreported,jdbcType=DECIMAL} , 
+        	  INSTRUCTIONS=#{instructions,jdbcType=CLOB}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.Fvisits" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_FVISITS
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="xno != null" >
+  	 		   and    XNO  = #{xno}  
+  	  	</if>
+  	  	<if test="fname != null" >
+  	 		   and    FNAME  = #{fname}  
+  	  	</if>
+  	  	<if test="household != null" >
+  	 		   and    HOUSEHOLD  = #{household}  
+  	  	</if>
+  	  	<if test="adress != null" >
+  	 		   and    ADRESS  = #{adress}  
+  	  	</if>
+  	  	<if test="xcode != null" >
+  	 		   and    XCODE  = #{xcode}  
+  	  	</if>
+  	  	<if test="pnumber != null" >
+  	 		   and    PNUMBER  = #{pnumber}  
+  	  	</if>
+  	  	<if test="purpose != null" >
+  	 		   and    PURPOSE  = #{purpose}  
+  	  	</if>
+  	  	<if test="xdate != null" >
+  	 		   and    XDATE  = #{xdate}  
+  	  	</if>
+  	  	<if test="xstatus != null" >
+  	 		   and    XSTATUS  = #{xstatus}  
+  	  	</if>
+  	  	<if test="xdays != null" >
+  	 		   and    XDAYS  = #{xdays}  
+  	  	</if>
+  	  	<if test="rperson != null" >
+  	 		   and    RPERSON  = #{rperson}  
+  	  	</if>
+  	  	<if test="fcontet != null" >
+  	 		   and    FCONTET  = #{fcontet}  
+  	  	</if>
+  	  	<if test="bstatus != null" >
+  	 		   and    BSTATUS  = #{bstatus}  
+  	  	</if>
+  	  	<if test="bdate != null" >
+  	 		   and    BDATE  = #{bdate}  
+  	  	</if>
+  	  	<if test="contractors != null" >
+  	 		   and    CONTRACTORS  = #{contractors}  
+  	  	</if>
+  	  	<if test="process != null" >
+  	 		   and    PROCESS  = #{process}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="isreported != null" >
+  	 		   and    ISREPORTED  = #{isreported}  
+  	  	</if>
+  	  	<if test="instructions != null" >
+  	 		   and    INSTRUCTIONS  = #{instructions}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.Fvisits">  
+    DELETE FROM BU_FVISITS  
+      <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="xno != null" >
+  	 		   and    XNO  = #{xno}  
+  	  	</if>
+  	  	<if test="fname != null" >
+  	 		   and    FNAME  = #{fname}  
+  	  	</if>
+  	  	<if test="household != null" >
+  	 		   and    HOUSEHOLD  = #{household}  
+  	  	</if>
+  	  	<if test="adress != null" >
+  	 		   and    ADRESS  = #{adress}  
+  	  	</if>
+  	  	<if test="xcode != null" >
+  	 		   and    XCODE  = #{xcode}  
+  	  	</if>
+  	  	<if test="pnumber != null" >
+  	 		   and    PNUMBER  = #{pnumber}  
+  	  	</if>
+  	  	<if test="purpose != null" >
+  	 		   and    PURPOSE  = #{purpose}  
+  	  	</if>
+  	  	<if test="xdate != null" >
+  	 		   and    XDATE  = #{xdate}  
+  	  	</if>
+  	  	<if test="xstatus != null" >
+  	 		   and    XSTATUS  = #{xstatus}  
+  	  	</if>
+  	  	<if test="xdays != null" >
+  	 		   and    XDAYS  = #{xdays}  
+  	  	</if>
+  	  	<if test="rperson != null" >
+  	 		   and    RPERSON  = #{rperson}  
+  	  	</if>
+  	  	<if test="fcontet != null" >
+  	 		   and    FCONTET  = #{fcontet}  
+  	  	</if>
+  	  	<if test="bstatus != null" >
+  	 		   and    BSTATUS  = #{bstatus}  
+  	  	</if>
+  	  	<if test="bdate != null" >
+  	 		   and    BDATE  = #{bdate}  
+  	  	</if>
+  	  	<if test="contractors != null" >
+  	 		   and    CONTRACTORS  = #{contractors}  
+  	  	</if>
+  	  	<if test="process != null" >
+  	 		   and    PROCESS  = #{process}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="isreported != null" >
+  	 		   and    ISREPORTED  = #{isreported}  
+  	  	</if>
+  	  	<if test="instructions != null" >
+  	 		   and    INSTRUCTIONS  = #{instructions}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  BU_FVISITS WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.Fvisits" >
+select count(*) from BU_FVISITS
+ <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="xno != null" >
+  	 		   and    XNO  = #{xno}  
+  	  	</if>
+  	  	<if test="fname != null" >
+  	 		   and    FNAME  = #{fname}  
+  	  	</if>
+  	  	<if test="household != null" >
+  	 		   and    HOUSEHOLD  = #{household}  
+  	  	</if>
+  	  	<if test="adress != null" >
+  	 		   and    ADRESS  = #{adress}  
+  	  	</if>
+  	  	<if test="xcode != null" >
+  	 		   and    XCODE  = #{xcode}  
+  	  	</if>
+  	  	<if test="pnumber != null" >
+  	 		   and    PNUMBER  = #{pnumber}  
+  	  	</if>
+  	  	<if test="purpose != null" >
+  	 		   and    PURPOSE  = #{purpose}  
+  	  	</if>
+  	  	<if test="xdate != null" >
+  	 		   and    XDATE  = #{xdate}  
+  	  	</if>
+  	  	<if test="xstatus != null" >
+  	 		   and    XSTATUS  = #{xstatus}  
+  	  	</if>
+  	  	<if test="xdays != null" >
+  	 		   and    XDAYS  = #{xdays}  
+  	  	</if>
+  	  	<if test="rperson != null" >
+  	 		   and    RPERSON  = #{rperson}  
+  	  	</if>
+  	  	<if test="fcontet != null" >
+  	 		   and    FCONTET  = #{fcontet}  
+  	  	</if>
+  	  	<if test="bstatus != null" >
+  	 		   and    BSTATUS  = #{bstatus}  
+  	  	</if>
+  	  	<if test="bdate != null" >
+  	 		   and    BDATE  = #{bdate}  
+  	  	</if>
+  	  	<if test="contractors != null" >
+  	 		   and    CONTRACTORS  = #{contractors}  
+  	  	</if>
+  	  	<if test="process != null" >
+  	 		   and    PROCESS  = #{process}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="isreported != null" >
+  	 		   and    ISREPORTED  = #{isreported}  
+  	  	</if>
+  	  	<if test="instructions != null" >
+  	 		   and    INSTRUCTIONS  = #{instructions}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from BU_FVISITS 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from BU_FVISITS where  
+     #{0}   LIKE '%'|| #{1}||'%'    
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.Fvisits" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_FVISITS
+      <where>  
+		  	<if test="xno != null" >
+  	 		        XNO  LIKE '%'|| #{xno}||'%'   or XCODE  LIKE '%'|| #{xno}||'%'   or FNAME  LIKE '%'|| #{xno}||'%'  
+  	  		</if>
+  	  		<if test="isreported != null" >
+  	 		   and    ISREPORTED  = #{isreported}  
+  	  		</if>
+  	  	</where>
+	</select>
+	
+</mapper>

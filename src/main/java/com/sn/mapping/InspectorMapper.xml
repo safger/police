@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.InspectorMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.Inspector" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="createdate" column="CREATEDATE"  jdbcType="TIMESTAMP" />
+        <result property="modifydate" column="MODIFYDATE"  jdbcType="DATE" />
+        <result property="departmentid" column="DEPARTMENTID"  jdbcType="VARCHAR" />
+        <result property="department" column="DEPARTMENT"  jdbcType="VARCHAR" />
+        <result property="paddress" column="PADDRESS"  jdbcType="VARCHAR" />
+        <result property="ptime" column="PTIME"  jdbcType="TIMESTAMP" />
+        <result property="description" column="DESCRIPTION"  jdbcType="VARCHAR" />
+        <result property="twice" column="TWICE"  jdbcType="DECIMAL" />
+        <result property="entryper" column="ENTRYPER"  jdbcType="VARCHAR" />
+        <result property="entryid" column="ENTRYID"  jdbcType="VARCHAR" />
+        <result property="qdepartment" column="QDEPARTMENT"  jdbcType="VARCHAR" />
+        <result property="qdepartmentid" column="QDEPARTMENTID"  jdbcType="VARCHAR" />
+        <result property="annex" column="ANNEX"  jdbcType="VARCHAR" />
+        <result property="presult" column="PRESULT"  jdbcType="CLOB" />
+        <result property="description2" column="DESCRIPTION2"  jdbcType="VARCHAR" />
+        <result property="qtype" column="QTYPE"  jdbcType="VARCHAR" />
+        <result property="cold" column="COLD"  jdbcType="DECIMAL" />
+        <result property="cname" column="CNAME"  jdbcType="VARCHAR" />
+        <result property="isp" column="ISP"  jdbcType="DECIMAL" />
+        <result property="istrue" column="ISTRUE"  jdbcType="DECIMAL" />
+        <result property="cremarks" column="CREMARKS"  jdbcType="VARCHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         CREATEDATE ,
+         MODIFYDATE ,
+         DEPARTMENTID ,
+         DEPARTMENT ,
+         PADDRESS ,
+         PTIME ,
+         DESCRIPTION ,
+         TWICE ,
+         ENTRYPER ,
+         ENTRYID ,
+         QDEPARTMENT ,
+         QDEPARTMENTID ,
+         ANNEX ,
+         PRESULT ,
+         DESCRIPTION2 ,
+         QTYPE ,
+         COLD ,
+         CNAME ,
+         ISP ,
+         ISTRUE ,
+         CREMARKS 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from BU_INSPECTOR
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from BU_INSPECTOR
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.Inspector" >
+    
+         insert into BU_INSPECTOR ( 
+         		FUID , 
+         	          		CREATEDATE , 
+         	          		MODIFYDATE , 
+         	          		DEPARTMENTID , 
+         	          		DEPARTMENT , 
+         	          		PADDRESS , 
+         	          		PTIME , 
+         	          		DESCRIPTION , 
+         	          		TWICE , 
+         	          		ENTRYPER , 
+         	          		ENTRYID , 
+         	          		QDEPARTMENT , 
+         	          		QDEPARTMENTID , 
+         	          		ANNEX , 
+         	          		PRESULT , 
+         	          		DESCRIPTION2 , 
+         	          		QTYPE , 
+         	          		COLD , 
+         	          		CNAME , 
+         	          		ISP , 
+         	          		ISTRUE , 
+         	          		CREMARKS  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{modifydate,jdbcType=DATE} , 
+   	 	   	 		#{departmentid,jdbcType=VARCHAR} , 
+   	 	   	 		#{department,jdbcType=VARCHAR} , 
+   	 	   	 		#{paddress,jdbcType=VARCHAR} , 
+   	 	   	 		#{ptime,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{description,jdbcType=VARCHAR} , 
+   	 	   	 		#{twice,jdbcType=DECIMAL} , 
+   	 	   	 		#{entryper,jdbcType=VARCHAR} , 
+   	 	   	 		#{entryid,jdbcType=VARCHAR} , 
+   	 	   	 		#{qdepartment,jdbcType=VARCHAR} , 
+   	 	   	 		#{qdepartmentid,jdbcType=VARCHAR} , 
+   	 	   	 		#{annex,jdbcType=VARCHAR} , 
+   	 	   	 		#{presult,jdbcType=CLOB} , 
+   	 	   	 		#{description2,jdbcType=VARCHAR} , 
+   	 	   	 		#{qtype,jdbcType=VARCHAR} , 
+   	 	   	 		#{cold,jdbcType=DECIMAL} , 
+   	 	   	 		#{cname,jdbcType=VARCHAR} , 
+   	 	   	 		#{isp,jdbcType=DECIMAL} , 
+   	 	   	 		#{istrue,jdbcType=DECIMAL} , 
+   	 	   	 		#{cremarks,jdbcType=VARCHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.Inspector">
+  	  insert into  BU_INSPECTOR
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  CREATEDATE ,  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 	  MODIFYDATE ,  
+  	  	</if>
+  	  	<if test="departmentid != null" >
+  	 	  DEPARTMENTID ,  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 	  DEPARTMENT ,  
+  	  	</if>
+  	  	<if test="paddress != null" >
+  	 	  PADDRESS ,  
+  	  	</if>
+  	  	<if test="ptime != null" >
+  	 	  PTIME ,  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 	  DESCRIPTION ,  
+  	  	</if>
+  	  	<if test="twice != null" >
+  	 	  TWICE ,  
+  	  	</if>
+  	  	<if test="entryper != null" >
+  	 	  ENTRYPER ,  
+  	  	</if>
+  	  	<if test="entryid != null" >
+  	 	  ENTRYID ,  
+  	  	</if>
+  	  	<if test="qdepartment != null" >
+  	 	  QDEPARTMENT ,  
+  	  	</if>
+  	  	<if test="qdepartmentid != null" >
+  	 	  QDEPARTMENTID ,  
+  	  	</if>
+  	  	<if test="annex != null" >
+  	 	  ANNEX ,  
+  	  	</if>
+  	  	<if test="presult != null" >
+  	 	  PRESULT ,  
+  	  	</if>
+  	  	<if test="description2 != null" >
+  	 	  DESCRIPTION2 ,  
+  	  	</if>
+  	  	<if test="qtype != null" >
+  	 	  QTYPE ,  
+  	  	</if>
+  	  	<if test="cold != null" >
+  	 	  COLD ,  
+  	  	</if>
+  	  	<if test="cname != null" >
+  	 	  CNAME ,  
+  	  	</if>
+  	  	<if test="isp != null" >
+  	 	  ISP ,  
+  	  	</if>
+  	  	<if test="istrue != null" >
+  	 	  ISTRUE ,  
+  	  	</if>
+  	  	<if test="cremarks != null" >
+  	 	  CREMARKS   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifydate != null" >
+        	#{modifydate,jdbcType=DATE} , 
+       </if>
+    	<if test="departmentid != null" >
+        	#{departmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="department != null" >
+        	#{department,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="paddress != null" >
+        	#{paddress,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ptime != null" >
+        	#{ptime,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="description != null" >
+        	#{description,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="twice != null" >
+        	#{twice,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="entryper != null" >
+        	#{entryper,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="entryid != null" >
+        	#{entryid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="qdepartment != null" >
+        	#{qdepartment,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="qdepartmentid != null" >
+        	#{qdepartmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="annex != null" >
+        	#{annex,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="presult != null" >
+        	#{presult,jdbcType=CLOB} , 
+       </if>
+    	<if test="description2 != null" >
+        	#{description2,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="qtype != null" >
+        	#{qtype,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="cold != null" >
+        	#{cold,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="cname != null" >
+        	#{cname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="isp != null" >
+        	#{isp,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="istrue != null" >
+        	#{istrue,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="cremarks != null" >
+        	#{cremarks,jdbcType=VARCHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.Inspector" >
+    update  BU_INSPECTOR
+    <set >
+    	<if test="createdate != null" >
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifydate != null" >
+        	  MODIFYDATE=#{modifydate,jdbcType=DATE} , 
+       </if>
+    	<if test="departmentid != null" >
+        	  DEPARTMENTID=#{departmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="department != null" >
+        	  DEPARTMENT=#{department,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="paddress != null" >
+        	  PADDRESS=#{paddress,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ptime != null" >
+        	  PTIME=#{ptime,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="description != null" >
+        	  DESCRIPTION=#{description,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="twice != null" >
+        	  TWICE=#{twice,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="entryper != null" >
+        	  ENTRYPER=#{entryper,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="entryid != null" >
+        	  ENTRYID=#{entryid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="qdepartment != null" >
+        	  QDEPARTMENT=#{qdepartment,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="qdepartmentid != null" >
+        	  QDEPARTMENTID=#{qdepartmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="annex != null" >
+        	  ANNEX=#{annex,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="presult != null" >
+        	  PRESULT=#{presult,jdbcType=CLOB} , 
+       </if>
+    	<if test="description2 != null" >
+        	  DESCRIPTION2=#{description2,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="qtype != null" >
+        	  QTYPE=#{qtype,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="cold != null" >
+        	  COLD=#{cold,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="cname != null" >
+        	  CNAME=#{cname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="isp != null" >
+        	  ISP=#{isp,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="istrue != null" >
+        	  ISTRUE=#{istrue,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="cremarks != null" >
+        	  CREMARKS=#{cremarks,jdbcType=VARCHAR}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.Inspector" >
+    update BU_INSPECTOR
+    set 
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+        	  MODIFYDATE=#{modifydate,jdbcType=DATE} , 
+        	  DEPARTMENTID=#{departmentid,jdbcType=VARCHAR} , 
+        	  DEPARTMENT=#{department,jdbcType=VARCHAR} , 
+        	  PADDRESS=#{paddress,jdbcType=VARCHAR} , 
+        	  PTIME=#{ptime,jdbcType=TIMESTAMP} , 
+        	  DESCRIPTION=#{description,jdbcType=VARCHAR} , 
+        	  TWICE=#{twice,jdbcType=DECIMAL} , 
+        	  ENTRYPER=#{entryper,jdbcType=VARCHAR} , 
+        	  ENTRYID=#{entryid,jdbcType=VARCHAR} , 
+        	  QDEPARTMENT=#{qdepartment,jdbcType=VARCHAR} , 
+        	  QDEPARTMENTID=#{qdepartmentid,jdbcType=VARCHAR} , 
+        	  ANNEX=#{annex,jdbcType=VARCHAR} , 
+        	  PRESULT=#{presult,jdbcType=CLOB} , 
+        	  DESCRIPTION2=#{description2,jdbcType=VARCHAR} , 
+        	  QTYPE=#{qtype,jdbcType=VARCHAR} , 
+        	  COLD=#{cold,jdbcType=DECIMAL} , 
+        	  CNAME=#{cname,jdbcType=VARCHAR} , 
+        	  ISP=#{isp,jdbcType=DECIMAL} , 
+        	  ISTRUE=#{istrue,jdbcType=DECIMAL} , 
+        	  CREMARKS=#{cremarks,jdbcType=VARCHAR}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.Inspector" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_INSPECTOR
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="departmentid != null" >
+  	 		   and    DEPARTMENTID  = #{departmentid}  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 		   and    DEPARTMENT  = #{department}  
+  	  	</if>
+  	  	<if test="paddress != null" >
+  	 		   and    PADDRESS  = #{paddress}  
+  	  	</if>
+  	  	<if test="ptime != null" >
+  	 		   and    PTIME  = #{ptime}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="twice != null" >
+  	 		   and    TWICE  = #{twice}  
+  	  	</if>
+  	  	<if test="entryper != null" >
+  	 		   and    ENTRYPER  = #{entryper}  
+  	  	</if>
+  	  	<if test="entryid != null" >
+  	 		   and    ENTRYID  = #{entryid}  
+  	  	</if>
+  	  	<if test="qdepartment != null" >
+  	 		   and    QDEPARTMENT  = #{qdepartment}  
+  	  	</if>
+  	  	<if test="qdepartmentid != null" >
+  	 		   and    QDEPARTMENTID  = #{qdepartmentid}  
+  	  	</if>
+  	  	<if test="annex != null" >
+  	 		   and    ANNEX  = #{annex}  
+  	  	</if>
+  	  	<if test="presult != null" >
+  	 		   and    PRESULT  = #{presult}  
+  	  	</if>
+  	  	<if test="description2 != null" >
+  	 		   and    DESCRIPTION2  = #{description2}  
+  	  	</if>
+  	  	<if test="qtype != null" >
+  	 		   and    QTYPE  = #{qtype}  
+  	  	</if>
+  	  	<if test="cold != null" >
+  	 		   and    COLD  = #{cold}  
+  	  	</if>
+  	  	<if test="cname != null" >
+  	 		   and    CNAME  = #{cname}  
+  	  	</if>
+  	  	<if test="isp != null" >
+  	 		   and    ISP  = #{isp}  
+  	  	</if>
+  	  	<if test="istrue != null" >
+  	 		   and    ISTRUE  = #{istrue}  
+  	  	</if>
+  	  	<if test="cremarks != null" >
+  	 		   and    CREMARKS  = #{cremarks}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.Inspector">  
+    DELETE FROM BU_INSPECTOR  
+      <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="departmentid != null" >
+  	 		   and    DEPARTMENTID  = #{departmentid}  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 		   and    DEPARTMENT  = #{department}  
+  	  	</if>
+  	  	<if test="paddress != null" >
+  	 		   and    PADDRESS  = #{paddress}  
+  	  	</if>
+  	  	<if test="ptime != null" >
+  	 		   and    PTIME  = #{ptime}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="twice != null" >
+  	 		   and    TWICE  = #{twice}  
+  	  	</if>
+  	  	<if test="entryper != null" >
+  	 		   and    ENTRYPER  = #{entryper}  
+  	  	</if>
+  	  	<if test="entryid != null" >
+  	 		   and    ENTRYID  = #{entryid}  
+  	  	</if>
+  	  	<if test="qdepartment != null" >
+  	 		   and    QDEPARTMENT  = #{qdepartment}  
+  	  	</if>
+  	  	<if test="qdepartmentid != null" >
+  	 		   and    QDEPARTMENTID  = #{qdepartmentid}  
+  	  	</if>
+  	  	<if test="annex != null" >
+  	 		   and    ANNEX  = #{annex}  
+  	  	</if>
+  	  	<if test="presult != null" >
+  	 		   and    PRESULT  = #{presult}  
+  	  	</if>
+  	  	<if test="description2 != null" >
+  	 		   and    DESCRIPTION2  = #{description2}  
+  	  	</if>
+  	  	<if test="qtype != null" >
+  	 		   and    QTYPE  = #{qtype}  
+  	  	</if>
+  	  	<if test="cold != null" >
+  	 		   and    COLD  = #{cold}  
+  	  	</if>
+  	  	<if test="cname != null" >
+  	 		   and    CNAME  = #{cname}  
+  	  	</if>
+  	  	<if test="isp != null" >
+  	 		   and    ISP  = #{isp}  
+  	  	</if>
+  	  	<if test="istrue != null" >
+  	 		   and    ISTRUE  = #{istrue}  
+  	  	</if>
+  	  	<if test="cremarks != null" >
+  	 		   and    CREMARKS  = #{cremarks}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  BU_INSPECTOR WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.Inspector" >
+select count(*) from BU_INSPECTOR
+ <where>  
+ 		description!='-1'
+  	  	<if test="fuid != null" >
+  	 		and       FUID  = #{fuid}  
+  	  	</if> 
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="departmentid != null" >
+  	 		   and    DEPARTMENTID  = #{departmentid}  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 		   and    DEPARTMENT  = #{department}  
+  	  	</if>
+  	  	<if test="paddress != null" >
+  	 		   and    PADDRESS  = #{paddress}  
+  	  	</if>
+  	  	<if test="ptime != null" >
+  	 		   and    PTIME  = #{ptime}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="twice != null" >
+  	 		   and    TWICE  = #{twice}  
+  	  	</if>
+  	  	<if test="entryper != null" >
+  	 		   and    ENTRYPER  = #{entryper}  
+  	  	</if>
+  	  	<if test="entryid != null" >
+  	 		   and    ENTRYID  = #{entryid}  
+  	  	</if>
+  	  	<if test="qdepartment != null" >
+  	 		   and    QDEPARTMENT  = #{qdepartment}  
+  	  	</if>
+  	  	<if test="qdepartmentid != null" >
+  	 		   and    QDEPARTMENTID  = #{qdepartmentid}  
+  	  	</if>
+  	  	<if test="annex != null" >
+  	 		   and    ANNEX  = #{annex}  
+  	  	</if>
+  	  	<if test="presult != null" >
+  	 		   and    PRESULT  = #{presult}  
+  	  	</if>
+  	  	<if test="description2 != null" >
+  	 		   and    DESCRIPTION2  = #{description2}  
+  	  	</if>
+  	  	<if test="qtype != null" >
+  	 		   and    QTYPE  = #{qtype}  
+  	  	</if>
+  	  	<if test="cold != null" >
+  	 		   and    COLD  = #{cold}  
+  	  	</if>
+  	  	<if test="cname != null" >
+  	 		   and    CNAME  = #{cname}  
+  	  	</if>
+  	  	<if test="isp != null" >
+  	 		   and    ISP  = #{isp}  
+  	  	</if>
+  	  	<if test="istrue != null" >
+  	 		   and    ISTRUE  = #{istrue}  
+  	  	</if>
+  	  	<if test="cremarks != null" >
+  	 		   and    CREMARKS  = #{cremarks}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from BU_INSPECTOR 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from BU_INSPECTOR where  
+     #{0}   LIKE '%'|| #{1}||'%'    
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.Inspector" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_INSPECTOR
+      <where>  
+      description!='-1'
+      <if test="qdepartmentid != null" > 
+  	 		 and       QDEPARTMENTID =#{qdepartmentid}
+  	  	</if> 
+  	  	<if test="qtype != null" >
+  	 		   and    QTYPE  = #{qtype}  
+  	  	</if> 
+  	  	<if test="ptime != null" >
+  	 		   and    PTIME  >=    #{ptime}
+  	  	</if> 
+  	  	<if test="modifydate != null" >  
+  	 		   and   PTIME &lt;= #{modifydate}   
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="twice != null" >
+  	 		   and    TWICE  = #{twice}  
+  	  	</if>
+  	  		<if test="departmentid != null" >
+  	 		   and    DEPARTMENTID  = #{departmentid}  
+  	  	</if>
+  	  	   
+  	  	
+  	  	</where>
+	</select>
+	<select id="countByCustom" resultType="java.lang.Integer" parameterType="com.sn.entity.Inspector" >
+select count(*) from BU_INSPECTOR
+ <where>  
+ 		description!='-1'
+	  	  <if test="createdate != null" >
+	  	 		   and     CREATEDATE  > = #{createdate}  
+	  	  	</if>   
+  	  	<if test="modifydate != null" > 
+  	 		     and   CREATEDATE  &lt;= #{modifydate}  
+  	  	</if>
+  	  	<if test="departmentid != null" >
+  	 		   and    DEPARTMENTID  = #{departmentid}  
+  	  	</if>
+  	  	<if test="qdepartmentid != null" >
+  	 		   and    QDEPARTMENTID  = #{qdepartmentid}  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 		   and    DEPARTMENT  = #{department}  
+  	  	</if>
+  	  	<if test="ptime != null" >
+  	 		   and    PTIME  = #{ptime}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and   ( DESCRIPTION  = #{description} or DESCRIPTION2 = #{description}   )
+  	  	</if>
+  	  	<if test="qtype != null" >
+  	 		   and    QTYPE  = #{qtype}  
+  	  	</if> 
+    </where>  
+</select>
+	<resultMap id="resultMap" type="com.sn.entity.Inspector" >
+ 		 <id column="QDEPARTMENTID" property="qdepartmentid" jdbcType="VARCHAR" />
+        <result property="qdepartment" column="QDEPARTMENT"  jdbcType="VARCHAR" />
+  </resultMap> 
+  
+<select id="selectByGroup" resultMap="resultMap" parameterType="com.sn.entity.Inspector" >
+ select qdepartment,qdepartmentid,count(qdepartment) as isp from BU_INSPECTOR
+  <where>   
+  	description!='-1'
+  		<if test="createdate != null" >
+  	 		      and  CREATEDATE  >= #{createdate}  
+  	  	</if> 
+  	  	<if test="modifydate != null" > 
+  	 		     and   CREATEDATE &lt; = #{modifydate}  
+  	  	</if>
+  	  	<if test="twice != null" >
+  	 		   and    TWICE  = #{twice}  
+  	  	</if>
+  	  		<if test="qtype != null" >
+  	 		   and    QTYPE  = #{qtype}  
+  	  	</if>
+  </where> 
+    group by qdepartment,qdepartmentid order by (select sortcode  from base_organize where layer=2 and fuid=qdepartmentid)
+</select>
+ 
+<select id="selectByTypeGroup" resultMap="resultMap" parameterType="com.sn.entity.Inspector" >
+ select description,count(description) as isp from BU_INSPECTOR
+  <where>   
+  		description!='-1'
+  		<if test="createdate != null" >
+  	 		      and  CREATEDATE  >= #{createdate}  
+  	  	</if> 
+  	  	<if test="modifydate != null" > 
+  	 		     and   CREATEDATE &lt; = #{modifydate}  
+  	  	</if>
+  	  	<if test="twice != null" >
+  	 		   and    TWICE  = #{twice}  
+  	  	</if>
+  	  		<if test="qtype != null" >
+  	 		   and    QTYPE  = #{qtype}  
+  	  	</if>
+  	  	<if test="qdepartmentid != null" >
+  	 		   and    QDEPARTMENTID  = #{qdepartmentid}  
+  	  	</if>
+  </where> 
+    group by description order by description
+</select>
+
+</mapper>

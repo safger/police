@@ -1,0 +1,1153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.ProblemdataMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.Problemdata" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="perid" column="PERID"  jdbcType="VARCHAR" />
+        <result property="name" column="NAME"  jdbcType="VARCHAR" />
+        <result property="chapter" column="CHAPTER"  jdbcType="VARCHAR" />
+        <result property="terms" column="TERMS"  jdbcType="VARCHAR" />
+        <result property="rulesid" column="RULESID"  jdbcType="VARCHAR" />
+        <result property="score" column="SCORE"  jdbcType="FLOAT" />
+        <result property="locking" column="LOCKING"  jdbcType="DECIMAL" />
+        <result property="recorder" column="RECORDER"  jdbcType="VARCHAR" />
+        <result property="modifydate" column="MODIFYDATE"  jdbcType="TIMESTAMP" />
+        <result property="createdate" column="CREATEDATE"  jdbcType="TIMESTAMP" />
+        <result property="remarks" column="REMARKS"  jdbcType="VARCHAR" />
+        <result property="hmd" column="HMD"  jdbcType="VARCHAR" />
+        <result property="orrurdate" column="ORRURDATE"  jdbcType="TIMESTAMP" />
+        <result property="department" column="DEPARTMENT"  jdbcType="VARCHAR" />
+        <result property="scoringper" column="SCORINGPER"  jdbcType="VARCHAR" />
+        <result property="jopinion" column="JOPINION"  jdbcType="VARCHAR" />
+        <result property="bopinion" column="BOPINION"  jdbcType="VARCHAR" />
+        <result property="fopinion" column="FOPINION"  jdbcType="VARCHAR" />
+        <result property="zopinion" column="ZOPINION"  jdbcType="VARCHAR" />
+        <result property="dtype" column="DTYPE"  jdbcType="DECIMAL" />
+        <result property="ispolice" column="ISPOLICE"  jdbcType="DECIMAL" />
+        <result property="jdepartment" column="JDEPARTMENT"  jdbcType="VARCHAR" />
+        <result property="departmentid" column="DEPARTMENTID"  jdbcType="VARCHAR" />
+        <result property="cdepartmentid" column="CDEPARTMENTID"  jdbcType="VARCHAR" />
+        <result property="cdepartment" column="CDEPARTMENT"  jdbcType="VARCHAR" />
+        <result property="zfdepartment" column="ZFDEPARTMENT"  jdbcType="VARCHAR" />
+        <result property="zfdepartmentid" column="ZFDEPARTMENTID"  jdbcType="VARCHAR" />
+        <result property="process" column="PROCESS"  jdbcType="VARCHAR" />
+        <result property="zfcdepartmentid" column="ZFCDEPARTMENTID"  jdbcType="VARCHAR" />
+        <result property="zfcdepartment" column="ZFCDEPARTMENT"  jdbcType="VARCHAR" />
+        <result property="zhdepartmentid" column="ZHDEPARTMENTID"  jdbcType="VARCHAR" />
+        <result property="zhdepartment" column="ZHDEPARTMENT"  jdbcType="VARCHAR" />
+        <result property="zhcdepartmentid" column="ZHCDEPARTMENTID"  jdbcType="VARCHAR" />
+        <result property="zhcdepartment" column="ZHCDEPARTMENT"  jdbcType="VARCHAR" />
+        <result property="commander" column="COMMANDER"  jdbcType="VARCHAR" />
+        <result property="zdescription" column="ZDESCRIPTION"  jdbcType="VARCHAR" />
+        <result property="zstatus" column="ZSTATUS"  jdbcType="DECIMAL" />
+        <result property="jtype" column="JTYPE"  jdbcType="DECIMAL" />
+        <result property="supervision" column="SUPERVISION"  jdbcType="DECIMAL" />
+        <result property="jftype" column="JFTYPE"  jdbcType="DECIMAL" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         PERID ,
+         NAME ,
+         CHAPTER ,
+         TERMS ,
+         RULESID ,
+         SCORE ,
+         LOCKING ,
+         RECORDER ,
+         MODIFYDATE ,
+         CREATEDATE ,
+         REMARKS ,
+         HMD ,
+         ORRURDATE ,
+         DEPARTMENT ,
+         SCORINGPER ,
+         JOPINION ,
+         BOPINION ,
+         FOPINION ,
+         ZOPINION ,
+         DTYPE ,
+         ISPOLICE ,
+         JDEPARTMENT ,
+         DEPARTMENTID ,
+         CDEPARTMENTID ,
+         CDEPARTMENT ,
+         ZFDEPARTMENT ,
+         ZFDEPARTMENTID ,
+         PROCESS ,
+         ZFCDEPARTMENTID ,
+         ZFCDEPARTMENT ,
+         ZHDEPARTMENTID ,
+         ZHDEPARTMENT ,
+         ZHCDEPARTMENTID ,
+         ZHCDEPARTMENT ,
+         COMMANDER ,
+         ZDESCRIPTION ,
+         ZSTATUS ,
+         JTYPE ,
+         SUPERVISION ,
+         JFTYPE 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from BU_PROBLEMDATA
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from BU_PROBLEMDATA
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.Problemdata" >
+    
+         insert into BU_PROBLEMDATA ( 
+         		FUID , 
+         	          		PERID , 
+         	          		NAME , 
+         	          		CHAPTER , 
+         	          		TERMS , 
+         	          		RULESID , 
+         	          		SCORE , 
+         	          		LOCKING , 
+         	          		RECORDER , 
+         	          		MODIFYDATE , 
+         	          		CREATEDATE , 
+         	          		REMARKS , 
+         	          		HMD , 
+         	          		ORRURDATE , 
+         	          		DEPARTMENT , 
+         	          		SCORINGPER , 
+         	          		JOPINION , 
+         	          		BOPINION , 
+         	          		FOPINION , 
+         	          		ZOPINION , 
+         	          		DTYPE , 
+         	          		ISPOLICE , 
+         	          		JDEPARTMENT , 
+         	          		DEPARTMENTID , 
+         	          		CDEPARTMENTID , 
+         	          		CDEPARTMENT , 
+         	          		ZFDEPARTMENT , 
+         	          		ZFDEPARTMENTID , 
+         	          		PROCESS , 
+         	          		ZFCDEPARTMENTID , 
+         	          		ZFCDEPARTMENT , 
+         	          		ZHDEPARTMENTID , 
+         	          		ZHDEPARTMENT , 
+         	          		ZHCDEPARTMENTID , 
+         	          		ZHCDEPARTMENT , 
+         	          		COMMANDER , 
+         	          		ZDESCRIPTION , 
+         	          		ZSTATUS , 
+         	          		JTYPE , 
+         	          		SUPERVISION , 
+         	          		JFTYPE  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{perid,jdbcType=VARCHAR} , 
+   	 	   	 		#{name,jdbcType=VARCHAR} , 
+   	 	   	 		#{chapter,jdbcType=VARCHAR} , 
+   	 	   	 		#{terms,jdbcType=VARCHAR} , 
+   	 	   	 		#{rulesid,jdbcType=VARCHAR} , 
+   	 	   	 		#{score,jdbcType=FLOAT} , 
+   	 	   	 		#{locking,jdbcType=DECIMAL} , 
+   	 	   	 		#{recorder,jdbcType=VARCHAR} , 
+   	 	   	 		#{modifydate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{remarks,jdbcType=VARCHAR} , 
+   	 	   	 		#{hmd,jdbcType=VARCHAR} , 
+   	 	   	 		#{orrurdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{department,jdbcType=VARCHAR} , 
+   	 	   	 		#{scoringper,jdbcType=VARCHAR} , 
+   	 	   	 		#{jopinion,jdbcType=VARCHAR} , 
+   	 	   	 		#{bopinion,jdbcType=VARCHAR} , 
+   	 	   	 		#{fopinion,jdbcType=VARCHAR} , 
+   	 	   	 		#{zopinion,jdbcType=VARCHAR} , 
+   	 	   	 		#{dtype,jdbcType=DECIMAL} , 
+   	 	   	 		#{ispolice,jdbcType=DECIMAL} , 
+   	 	   	 		#{jdepartment,jdbcType=VARCHAR} , 
+   	 	   	 		#{departmentid,jdbcType=VARCHAR} , 
+   	 	   	 		#{cdepartmentid,jdbcType=VARCHAR} , 
+   	 	   	 		#{cdepartment,jdbcType=VARCHAR} , 
+   	 	   	 		#{zfdepartment,jdbcType=VARCHAR} , 
+   	 	   	 		#{zfdepartmentid,jdbcType=VARCHAR} , 
+   	 	   	 		#{process,jdbcType=VARCHAR} , 
+   	 	   	 		#{zfcdepartmentid,jdbcType=VARCHAR} , 
+   	 	   	 		#{zfcdepartment,jdbcType=VARCHAR} , 
+   	 	   	 		#{zhdepartmentid,jdbcType=VARCHAR} , 
+   	 	   	 		#{zhdepartment,jdbcType=VARCHAR} , 
+   	 	   	 		#{zhcdepartmentid,jdbcType=VARCHAR} , 
+   	 	   	 		#{zhcdepartment,jdbcType=VARCHAR} , 
+   	 	   	 		#{commander,jdbcType=VARCHAR} , 
+   	 	   	 		#{zdescription,jdbcType=VARCHAR} , 
+   	 	   	 		#{zstatus,jdbcType=DECIMAL} , 
+   	 	   	 		#{jtype,jdbcType=DECIMAL} , 
+   	 	   	 		#{supervision,jdbcType=DECIMAL} , 
+   	 	   	 		#{jftype,jdbcType=DECIMAL}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.Problemdata">
+  	  insert into  BU_PROBLEMDATA
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="perid != null" >
+  	 	  PERID ,  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 	  NAME ,  
+  	  	</if>
+  	  	<if test="chapter != null" >
+  	 	  CHAPTER ,  
+  	  	</if>
+  	  	<if test="terms != null" >
+  	 	  TERMS ,  
+  	  	</if>
+  	  	<if test="rulesid != null" >
+  	 	  RULESID ,  
+  	  	</if>
+  	  	<if test="score != null" >
+  	 	  SCORE ,  
+  	  	</if>
+  	  	<if test="locking != null" >
+  	 	  LOCKING ,  
+  	  	</if>
+  	  	<if test="recorder != null" >
+  	 	  RECORDER ,  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 	  MODIFYDATE ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  CREATEDATE ,  
+  	  	</if>
+  	  	<if test="remarks != null" >
+  	 	  REMARKS ,  
+  	  	</if>
+  	  	<if test="hmd != null" >
+  	 	  HMD ,  
+  	  	</if>
+  	  	<if test="orrurdate != null" >
+  	 	  ORRURDATE ,  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 	  DEPARTMENT ,  
+  	  	</if>
+  	  	<if test="scoringper != null" >
+  	 	  SCORINGPER ,  
+  	  	</if>
+  	  	<if test="jopinion != null" >
+  	 	  JOPINION ,  
+  	  	</if>
+  	  	<if test="bopinion != null" >
+  	 	  BOPINION ,  
+  	  	</if>
+  	  	<if test="fopinion != null" >
+  	 	  FOPINION ,  
+  	  	</if>
+  	  	<if test="zopinion != null" >
+  	 	  ZOPINION ,  
+  	  	</if>
+  	  	<if test="dtype != null" >
+  	 	  DTYPE ,  
+  	  	</if>
+  	  	<if test="ispolice != null" >
+  	 	  ISPOLICE ,  
+  	  	</if>
+  	  	<if test="jdepartment != null" >
+  	 	  JDEPARTMENT ,  
+  	  	</if>
+  	  	<if test="departmentid != null" >
+  	 	  DEPARTMENTID ,  
+  	  	</if>
+  	  	<if test="cdepartmentid != null" >
+  	 	  CDEPARTMENTID ,  
+  	  	</if>
+  	  	<if test="cdepartment != null" >
+  	 	  CDEPARTMENT ,  
+  	  	</if>
+  	  	<if test="zfdepartment != null" >
+  	 	  ZFDEPARTMENT ,  
+  	  	</if>
+  	  	<if test="zfdepartmentid != null" >
+  	 	  ZFDEPARTMENTID ,  
+  	  	</if>
+  	  	<if test="process != null" >
+  	 	  PROCESS ,  
+  	  	</if>
+  	  	<if test="zfcdepartmentid != null" >
+  	 	  ZFCDEPARTMENTID ,  
+  	  	</if>
+  	  	<if test="zfcdepartment != null" >
+  	 	  ZFCDEPARTMENT ,  
+  	  	</if>
+  	  	<if test="zhdepartmentid != null" >
+  	 	  ZHDEPARTMENTID ,  
+  	  	</if>
+  	  	<if test="zhdepartment != null" >
+  	 	  ZHDEPARTMENT ,  
+  	  	</if>
+  	  	<if test="zhcdepartmentid != null" >
+  	 	  ZHCDEPARTMENTID ,  
+  	  	</if>
+  	  	<if test="zhcdepartment != null" >
+  	 	  ZHCDEPARTMENT ,  
+  	  	</if>
+  	  	<if test="commander != null" >
+  	 	  COMMANDER ,  
+  	  	</if>
+  	  	<if test="zdescription != null" >
+  	 	  ZDESCRIPTION ,  
+  	  	</if>
+  	  	<if test="zstatus != null" >
+  	 	  ZSTATUS ,  
+  	  	</if>
+  	  	<if test="jtype != null" >
+  	 	  JTYPE ,  
+  	  	</if>
+  	  	<if test="supervision != null" >
+  	 	  SUPERVISION ,  
+  	  	</if>
+  	  	<if test="jftype != null" >
+  	 	  JFTYPE   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="perid != null" >
+        	#{perid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="name != null" >
+        	#{name,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="chapter != null" >
+        	#{chapter,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="terms != null" >
+        	#{terms,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="rulesid != null" >
+        	#{rulesid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="score != null" >
+        	#{score,jdbcType=FLOAT} , 
+       </if>
+    	<if test="locking != null" >
+        	#{locking,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="recorder != null" >
+        	#{recorder,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifydate != null" >
+        	#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="remarks != null" >
+        	#{remarks,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="hmd != null" >
+        	#{hmd,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="orrurdate != null" >
+        	#{orrurdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="department != null" >
+        	#{department,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="scoringper != null" >
+        	#{scoringper,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="jopinion != null" >
+        	#{jopinion,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="bopinion != null" >
+        	#{bopinion,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fopinion != null" >
+        	#{fopinion,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zopinion != null" >
+        	#{zopinion,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="dtype != null" >
+        	#{dtype,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="ispolice != null" >
+        	#{ispolice,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="jdepartment != null" >
+        	#{jdepartment,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="departmentid != null" >
+        	#{departmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="cdepartmentid != null" >
+        	#{cdepartmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="cdepartment != null" >
+        	#{cdepartment,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zfdepartment != null" >
+        	#{zfdepartment,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zfdepartmentid != null" >
+        	#{zfdepartmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="process != null" >
+        	#{process,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zfcdepartmentid != null" >
+        	#{zfcdepartmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zfcdepartment != null" >
+        	#{zfcdepartment,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zhdepartmentid != null" >
+        	#{zhdepartmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zhdepartment != null" >
+        	#{zhdepartment,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zhcdepartmentid != null" >
+        	#{zhcdepartmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zhcdepartment != null" >
+        	#{zhcdepartment,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="commander != null" >
+        	#{commander,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zdescription != null" >
+        	#{zdescription,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zstatus != null" >
+        	#{zstatus,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="jtype != null" >
+        	#{jtype,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="supervision != null" >
+        	#{supervision,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="jftype != null" >
+        	#{jftype,jdbcType=DECIMAL}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.Problemdata" >
+    update  BU_PROBLEMDATA
+    <set >
+    	<if test="perid != null" >
+        	  PERID=#{perid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="name != null" >
+        	  NAME=#{name,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="chapter != null" >
+        	  CHAPTER=#{chapter,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="terms != null" >
+        	  TERMS=#{terms,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="rulesid != null" >
+        	  RULESID=#{rulesid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="score != null" >
+        	  SCORE=#{score,jdbcType=FLOAT} , 
+       </if>
+    	<if test="locking != null" >
+        	  LOCKING=#{locking,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="recorder != null" >
+        	  RECORDER=#{recorder,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifydate != null" >
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="createdate != null" >
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="remarks != null" >
+        	  REMARKS=#{remarks,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="hmd != null" >
+        	  HMD=#{hmd,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="orrurdate != null" >
+        	  ORRURDATE=#{orrurdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="department != null" >
+        	  DEPARTMENT=#{department,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="scoringper != null" >
+        	  SCORINGPER=#{scoringper,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="jopinion != null" >
+        	  JOPINION=#{jopinion,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="bopinion != null" >
+        	  BOPINION=#{bopinion,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fopinion != null" >
+        	  FOPINION=#{fopinion,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zopinion != null" >
+        	  ZOPINION=#{zopinion,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="dtype != null" >
+        	  DTYPE=#{dtype,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="ispolice != null" >
+        	  ISPOLICE=#{ispolice,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="jdepartment != null" >
+        	  JDEPARTMENT=#{jdepartment,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="departmentid != null" >
+        	  DEPARTMENTID=#{departmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="cdepartmentid != null" >
+        	  CDEPARTMENTID=#{cdepartmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="cdepartment != null" >
+        	  CDEPARTMENT=#{cdepartment,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zfdepartment != null" >
+        	  ZFDEPARTMENT=#{zfdepartment,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zfdepartmentid != null" >
+        	  ZFDEPARTMENTID=#{zfdepartmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="process != null" >
+        	  PROCESS=#{process,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zfcdepartmentid != null" >
+        	  ZFCDEPARTMENTID=#{zfcdepartmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zfcdepartment != null" >
+        	  ZFCDEPARTMENT=#{zfcdepartment,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zhdepartmentid != null" >
+        	  ZHDEPARTMENTID=#{zhdepartmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zhdepartment != null" >
+        	  ZHDEPARTMENT=#{zhdepartment,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zhcdepartmentid != null" >
+        	  ZHCDEPARTMENTID=#{zhcdepartmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zhcdepartment != null" >
+        	  ZHCDEPARTMENT=#{zhcdepartment,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="commander != null" >
+        	  COMMANDER=#{commander,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zdescription != null" >
+        	  ZDESCRIPTION=#{zdescription,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zstatus != null" >
+        	  ZSTATUS=#{zstatus,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="jtype != null" >
+        	  JTYPE=#{jtype,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="supervision != null" >
+        	  SUPERVISION=#{supervision,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="jftype != null" >
+        	  JFTYPE=#{jftype,jdbcType=DECIMAL}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.Problemdata" >
+    update BU_PROBLEMDATA
+    set 
+        	  PERID=#{perid,jdbcType=VARCHAR} , 
+        	  NAME=#{name,jdbcType=VARCHAR} , 
+        	  CHAPTER=#{chapter,jdbcType=VARCHAR} , 
+        	  TERMS=#{terms,jdbcType=VARCHAR} , 
+        	  RULESID=#{rulesid,jdbcType=VARCHAR} , 
+        	  SCORE=#{score,jdbcType=FLOAT} , 
+        	  LOCKING=#{locking,jdbcType=DECIMAL} , 
+        	  RECORDER=#{recorder,jdbcType=VARCHAR} , 
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+        	  REMARKS=#{remarks,jdbcType=VARCHAR} , 
+        	  HMD=#{hmd,jdbcType=VARCHAR} , 
+        	  ORRURDATE=#{orrurdate,jdbcType=TIMESTAMP} , 
+        	  DEPARTMENT=#{department,jdbcType=VARCHAR} , 
+        	  SCORINGPER=#{scoringper,jdbcType=VARCHAR} , 
+        	  JOPINION=#{jopinion,jdbcType=VARCHAR} , 
+        	  BOPINION=#{bopinion,jdbcType=VARCHAR} , 
+        	  FOPINION=#{fopinion,jdbcType=VARCHAR} , 
+        	  ZOPINION=#{zopinion,jdbcType=VARCHAR} , 
+        	  DTYPE=#{dtype,jdbcType=DECIMAL} , 
+        	  ISPOLICE=#{ispolice,jdbcType=DECIMAL} , 
+        	  JDEPARTMENT=#{jdepartment,jdbcType=VARCHAR} , 
+        	  DEPARTMENTID=#{departmentid,jdbcType=VARCHAR} , 
+        	  CDEPARTMENTID=#{cdepartmentid,jdbcType=VARCHAR} , 
+        	  CDEPARTMENT=#{cdepartment,jdbcType=VARCHAR} , 
+        	  ZFDEPARTMENT=#{zfdepartment,jdbcType=VARCHAR} , 
+        	  ZFDEPARTMENTID=#{zfdepartmentid,jdbcType=VARCHAR} , 
+        	  PROCESS=#{process,jdbcType=VARCHAR} , 
+        	  ZFCDEPARTMENTID=#{zfcdepartmentid,jdbcType=VARCHAR} , 
+        	  ZFCDEPARTMENT=#{zfcdepartment,jdbcType=VARCHAR} , 
+        	  ZHDEPARTMENTID=#{zhdepartmentid,jdbcType=VARCHAR} , 
+        	  ZHDEPARTMENT=#{zhdepartment,jdbcType=VARCHAR} , 
+        	  ZHCDEPARTMENTID=#{zhcdepartmentid,jdbcType=VARCHAR} , 
+        	  ZHCDEPARTMENT=#{zhcdepartment,jdbcType=VARCHAR} , 
+        	  COMMANDER=#{commander,jdbcType=VARCHAR} , 
+        	  ZDESCRIPTION=#{zdescription,jdbcType=VARCHAR} , 
+        	  ZSTATUS=#{zstatus,jdbcType=DECIMAL} , 
+        	  JTYPE=#{jtype,jdbcType=DECIMAL} , 
+        	  SUPERVISION=#{supervision,jdbcType=DECIMAL} , 
+        	  JFTYPE=#{jftype,jdbcType=DECIMAL}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.Problemdata" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_PROBLEMDATA
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="perid != null" >
+  	 		   and    PERID  = #{perid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="chapter != null" >
+  	 		   and    CHAPTER  = #{chapter}  
+  	  	</if>
+  	  	<if test="terms != null" >
+  	 		   and    TERMS  = #{terms}  
+  	  	</if>
+  	  	<if test="rulesid != null" >
+  	 		   and    RULESID  = #{rulesid}  
+  	  	</if>
+  	  	<if test="score != null" >
+  	 		   and    SCORE  = #{score}  
+  	  	</if>
+  	  	<if test="locking != null" >
+  	 		   and    LOCKING  = #{locking}  
+  	  	</if>
+  	  	<if test="recorder != null" >
+  	 		   and    RECORDER  = #{recorder}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="remarks != null" >
+  	 		   and    REMARKS  = #{remarks}  
+  	  	</if>
+  	  	<if test="hmd != null" >
+  	 		   and    HMD  = #{hmd}  
+  	  	</if>
+  	  	<if test="orrurdate != null" >
+  	 		   and    ORRURDATE  = #{orrurdate}  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 		   and    DEPARTMENT  = #{department}  
+  	  	</if>
+  	  	<if test="scoringper != null" >
+  	 		   and    SCORINGPER  = #{scoringper}  
+  	  	</if>
+  	  	<if test="jopinion != null" >
+  	 		   and    JOPINION  = #{jopinion}  
+  	  	</if>
+  	  	<if test="bopinion != null" >
+  	 		   and    BOPINION  = #{bopinion}  
+  	  	</if>
+  	  	<if test="fopinion != null" >
+  	 		   and    FOPINION  = #{fopinion}  
+  	  	</if>
+  	  	<if test="zopinion != null" >
+  	 		   and    ZOPINION  = #{zopinion}  
+  	  	</if>
+  	  	<if test="dtype != null" >
+  	 		   and    DTYPE  = #{dtype}  
+  	  	</if>
+  	  	<if test="ispolice != null" >
+  	 		   and    ISPOLICE  = #{ispolice}  
+  	  	</if>
+  	  	<if test="jdepartment != null" >
+  	 		   and    JDEPARTMENT  = #{jdepartment}  
+  	  	</if>
+  	  	<if test="departmentid != null" >
+  	 		   and    DEPARTMENTID  = #{departmentid}  
+  	  	</if>
+  	  	<if test="cdepartmentid != null" >
+  	 		   and    CDEPARTMENTID  = #{cdepartmentid}  
+  	  	</if>
+  	  	<if test="cdepartment != null" >
+  	 		   and    CDEPARTMENT  = #{cdepartment}  
+  	  	</if>
+  	  	<if test="zfdepartment != null" >
+  	 		   and    ZFDEPARTMENT  = #{zfdepartment}  
+  	  	</if>
+  	  	<if test="zfdepartmentid != null" >
+  	 		   and    ZFDEPARTMENTID  = #{zfdepartmentid}  
+  	  	</if>
+  	  	<if test="process != null" >
+  	 		   and    PROCESS  = #{process}  
+  	  	</if>
+  	  	<if test="zfcdepartmentid != null" >
+  	 		   and    ZFCDEPARTMENTID  = #{zfcdepartmentid}  
+  	  	</if>
+  	  	<if test="zfcdepartment != null" >
+  	 		   and    ZFCDEPARTMENT  = #{zfcdepartment}  
+  	  	</if>
+  	  	<if test="zhdepartmentid != null" >
+  	 		   and    ZHDEPARTMENTID  = #{zhdepartmentid}  
+  	  	</if>
+  	  	<if test="zhdepartment != null" >
+  	 		   and    ZHDEPARTMENT  = #{zhdepartment}  
+  	  	</if>
+  	  	<if test="zhcdepartmentid != null" >
+  	 		   and    ZHCDEPARTMENTID  = #{zhcdepartmentid}  
+  	  	</if>
+  	  	<if test="zhcdepartment != null" >
+  	 		   and    ZHCDEPARTMENT  = #{zhcdepartment}  
+  	  	</if>
+  	  	<if test="commander != null" >
+  	 		   and    COMMANDER  = #{commander}  
+  	  	</if>
+  	  	<if test="zdescription != null" >
+  	 		   and    ZDESCRIPTION  = #{zdescription}  
+  	  	</if>
+  	  	<if test="zstatus != null" >
+  	 		   and    ZSTATUS  = #{zstatus}  
+  	  	</if>
+  	  	<if test="jtype != null" >
+  	 		   and    JTYPE  = #{jtype}  
+  	  	</if>
+  	  	<if test="supervision != null" >
+  	 		   and    SUPERVISION  = #{supervision}  
+  	  	</if>
+  	  	<if test="jftype != null" >
+  	 		   and    JFTYPE  = #{jftype}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.Problemdata">  
+    DELETE FROM BU_PROBLEMDATA  
+      <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="perid != null" >
+  	 		   and    PERID  = #{perid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="chapter != null" >
+  	 		   and    CHAPTER  = #{chapter}  
+  	  	</if>
+  	  	<if test="terms != null" >
+  	 		   and    TERMS  = #{terms}  
+  	  	</if>
+  	  	<if test="rulesid != null" >
+  	 		   and    RULESID  = #{rulesid}  
+  	  	</if>
+  	  	<if test="score != null" >
+  	 		   and    SCORE  = #{score}  
+  	  	</if>
+  	  	<if test="locking != null" >
+  	 		   and    LOCKING  = #{locking}  
+  	  	</if>
+  	  	<if test="recorder != null" >
+  	 		   and    RECORDER  = #{recorder}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="remarks != null" >
+  	 		   and    REMARKS  = #{remarks}  
+  	  	</if>
+  	  	<if test="hmd != null" >
+  	 		   and    HMD  = #{hmd}  
+  	  	</if>
+  	  	<if test="orrurdate != null" >
+  	 		   and    ORRURDATE  = #{orrurdate}  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 		   and    DEPARTMENT  = #{department}  
+  	  	</if>
+  	  	<if test="scoringper != null" >
+  	 		   and    SCORINGPER  = #{scoringper}  
+  	  	</if>
+  	  	<if test="jopinion != null" >
+  	 		   and    JOPINION  = #{jopinion}  
+  	  	</if>
+  	  	<if test="bopinion != null" >
+  	 		   and    BOPINION  = #{bopinion}  
+  	  	</if>
+  	  	<if test="fopinion != null" >
+  	 		   and    FOPINION  = #{fopinion}  
+  	  	</if>
+  	  	<if test="zopinion != null" >
+  	 		   and    ZOPINION  = #{zopinion}  
+  	  	</if>
+  	  	<if test="dtype != null" >
+  	 		   and    DTYPE  = #{dtype}  
+  	  	</if>
+  	  	<if test="ispolice != null" >
+  	 		   and    ISPOLICE  = #{ispolice}  
+  	  	</if>
+  	  	<if test="jdepartment != null" >
+  	 		   and    JDEPARTMENT  = #{jdepartment}  
+  	  	</if>
+  	  	<if test="departmentid != null" >
+  	 		   and    DEPARTMENTID  = #{departmentid}  
+  	  	</if>
+  	  	<if test="cdepartmentid != null" >
+  	 		   and    CDEPARTMENTID  = #{cdepartmentid}  
+  	  	</if>
+  	  	<if test="cdepartment != null" >
+  	 		   and    CDEPARTMENT  = #{cdepartment}  
+  	  	</if>
+  	  	<if test="zfdepartment != null" >
+  	 		   and    ZFDEPARTMENT  = #{zfdepartment}  
+  	  	</if>
+  	  	<if test="zfdepartmentid != null" >
+  	 		   and    ZFDEPARTMENTID  = #{zfdepartmentid}  
+  	  	</if>
+  	  	<if test="process != null" >
+  	 		   and    PROCESS  = #{process}  
+  	  	</if>
+  	  	<if test="zfcdepartmentid != null" >
+  	 		   and    ZFCDEPARTMENTID  = #{zfcdepartmentid}  
+  	  	</if>
+  	  	<if test="zfcdepartment != null" >
+  	 		   and    ZFCDEPARTMENT  = #{zfcdepartment}  
+  	  	</if>
+  	  	<if test="zhdepartmentid != null" >
+  	 		   and    ZHDEPARTMENTID  = #{zhdepartmentid}  
+  	  	</if>
+  	  	<if test="zhdepartment != null" >
+  	 		   and    ZHDEPARTMENT  = #{zhdepartment}  
+  	  	</if>
+  	  	<if test="zhcdepartmentid != null" >
+  	 		   and    ZHCDEPARTMENTID  = #{zhcdepartmentid}  
+  	  	</if>
+  	  	<if test="zhcdepartment != null" >
+  	 		   and    ZHCDEPARTMENT  = #{zhcdepartment}  
+  	  	</if>
+  	  	<if test="commander != null" >
+  	 		   and    COMMANDER  = #{commander}  
+  	  	</if>
+  	  	<if test="zdescription != null" >
+  	 		   and    ZDESCRIPTION  = #{zdescription}  
+  	  	</if>
+  	  	<if test="zstatus != null" >
+  	 		   and    ZSTATUS  = #{zstatus}  
+  	  	</if>
+  	  	<if test="jtype != null" >
+  	 		   and    JTYPE  = #{jtype}  
+  	  	</if>
+  	  	<if test="supervision != null" >
+  	 		   and    SUPERVISION  = #{supervision}  
+  	  	</if>
+  	  	<if test="jftype != null" >
+  	 		   and    JFTYPE  = #{jftype}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  BU_PROBLEMDATA WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.Problemdata" >
+select count(*) from BU_PROBLEMDATA
+ <where>  
+ 		(CDEPARTMENTID is not null and  DEPARTMENTID is not null)
+  	  	<if test="fuid != null" >
+  	 		   and    FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="perid != null" >
+  	 		   and    PERID  = #{perid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="chapter != null" >
+  	 		   and    CHAPTER  = #{chapter}  
+  	  	</if>
+  	  	<if test="terms != null" >
+  	 		   and    TERMS  = #{terms}  
+  	  	</if>
+  	  	<if test="rulesid != null" >
+  	 		   and    RULESID  = #{rulesid}  
+  	  	</if>
+  	  	<if test="score != null" >
+  	 		   and    SCORE  = #{score}  
+  	  	</if>
+  	  	<if test="locking != null" >
+  	 		   and    LOCKING  = #{locking}  
+  	  	</if>
+  	  	<if test="recorder != null" >
+  	 		   and    RECORDER  = #{recorder}  
+  	  	</if>
+  	  	  <if test="createdate != null" >
+	  	 		  and      CREATEDATE  > = #{createdate}  
+	  	  	</if>   
+  	  	<if test="modifydate != null" > 
+  	 		     and   CREATEDATE  &lt;= #{modifydate}  
+  	  	</if> 
+  	  	<if test="remarks != null" >
+  	 		   and    REMARKS  = #{remarks}  
+  	  	</if>
+  	  	<if test="hmd != null" >
+  	 		   and    HMD  = #{hmd}  
+  	  	</if>
+  	  	<if test="orrurdate != null" >
+  	 		   and    ORRURDATE  = #{orrurdate}  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 		   and    DEPARTMENT  = #{department}  
+  	  	</if>
+  	  	<if test="scoringper != null" >
+  	 		   and    SCORINGPER  = #{scoringper}  
+  	  	</if>
+  	  	<if test="dtype != null" >
+  	 		   and    DTYPE  = #{dtype}  
+  	  	</if>
+  	  	<if test="ispolice != null" >
+  	 		   and    ISPOLICE  = #{ispolice}  
+  	  	</if>
+  	  	<if test="jdepartment != null" >
+  	 		   and    JDEPARTMENT  = #{jdepartment}  
+  	  	</if>
+  	  	<if test="departmentid != null" >
+  	 		   and    DEPARTMENTID  = #{departmentid}  
+  	  	</if>
+  	  	<if test="cdepartmentid != null" >
+  	 		   and    CDEPARTMENTID  = #{cdepartmentid}  
+  	  	</if>
+  	  	<if test="cdepartment != null" >
+  	 		   and    CDEPARTMENT  = #{cdepartment}  
+  	  	</if>
+  	  	<if test="zfcdepartment != null" >
+  	 		   and    ZFCDEPARTMENT  = #{zfcdepartment}  
+  	  	</if>
+  	  	<if test="zfcdepartmentid != null" >
+  	 		   and    ZFCDEPARTMENTID  = #{zfcdepartmentid}  
+  	  	</if>
+  	  	<if test="zfdepartment != null" >
+  	 		   and    ZFDEPARTMENT  = #{zfdepartment}  
+  	  	</if>
+  	  	<if test="zfdepartmentid != null" >
+  	 		   and    ZFDEPARTMENTID  = #{zfdepartmentid}  
+  	  	</if>
+  	  	<if test="process != null" >
+  	 		   and    PROCESS  = #{process}  
+  	  	</if>
+  	  	<if test="zhdepartmentid != null" >
+  	 		   and    ZHDEPARTMENTID  = #{zhdepartmentid}  
+  	  	</if>
+  	  	<if test="zhdepartment != null" >
+  	 		   and    ZHDEPARTMENT  = #{zhdepartment}  
+  	  	</if>
+  	  	<if test="zhcdepartmentid != null" >
+  	 		   and    ZHCDEPARTMENTID  = #{zhcdepartmentid}  
+  	  	</if>
+  	  	<if test="zhcdepartment != null" >
+  	 		   and    ZHCDEPARTMENT  = #{zhcdepartment}  
+  	  	</if>
+  	  	<if test="commander != null" >
+  	 		   and    COMMANDER  = #{commander}  
+  	  	</if>
+  	  	<if test="zdescription != null" >
+  	 		   and    ZDESCRIPTION  = #{zdescription}  
+  	  	</if>
+  	  	<if test="zstatus != null" >
+  	 		   and    ZSTATUS  = #{zstatus}  
+  	  	</if>
+  	  	<if test="jtype != null" >
+  	 		   and    JTYPE  = #{jtype}  
+  	  	</if>
+  	  	<if test="supervision != null" >
+  	 		   and    SUPERVISION  = #{supervision}  
+  	  	</if>
+  	  	<if test="jftype != null" >
+  	 		   and    JFTYPE  = #{jftype}  
+  	  	</if>
+    </where>  
+</select>
+
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from BU_PROBLEMDATA 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from BU_PROBLEMDATA where  
+     #{0}   LIKE '%'|| #{1}||'%'    
+	</select> 
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.Problemdata" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_PROBLEMDATA
+      <where>  
+        (CDEPARTMENTID is not null and  DEPARTMENTID is not null)
+		 <if test="ispolice != null" > 
+  	 		   and     ISPOLICE  = #{ispolice}  
+  	  	</if>
+  	  		<if test="rulesid != null" >
+  	 		   and    RULESID  = #{rulesid}  
+  	  	</if>
+  	  	<if test="chapter != null" >
+  	 		   and    CHAPTER  = #{chapter}  
+  	  	</if> 
+  	  		<if test="hmd != null" >
+  	 		   and    HMD  like '%'|| #{hmd}  ||'%'      
+  	  	</if> 
+  	  		<if test="dtype != null" > 
+  	 		   and    DTYPE  = #{dtype}  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 		   and    DEPARTMENT  LIKE '%'|| #{department}  ||'%'     
+  	  	</if>
+  	  	 	<if test="departmentid != null" >
+  	 		   and   ( DEPARTMENTID  = #{departmentid}  or   ( zfcdepartmentid  = #{zfcdepartmentid}    )   )
+  	  	</if> 
+  	  	 	<if test="cdepartmentid != null" >
+  	 		   and   ( CDEPARTMENTID  = #{cdepartmentid}  or   ( zfcdepartmentid  = #{zfcdepartmentid}    )   )
+  	  	</if> 
+  	  	<if test="name != null" > 
+  	 		   and    name  like '%'|| #{name}  ||'%'      
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		    and     ORRURDATE  >= #{createdate}  
+  	  	</if>  
+  	  	<if test="modifydate != null" > 
+  	 		     and   ORRURDATE &lt; = #{modifydate}  
+  	  	</if>
+  	  	</where>
+	</select> 
+	
+	<select id="countByJf" resultType="java.lang.Integer" parameterType="com.sn.entity.Problemdata" >
+select sum(SCORE) from BU_PROBLEMDATA
+ <where>   
+ 		   (CDEPARTMENTID is not null and  DEPARTMENTID is not null)
+		 <if test="ispolice != null" > 
+  	 		      and  ISPOLICE  = #{ispolice}   
+  	  	</if>
+  	  		<if test="rulesid != null" >
+  	 		   and    RULESID  = #{rulesid}  
+  	  	</if>
+  	  	<if test="chapter != null" >
+  	 		   and    CHAPTER  = #{chapter}  
+  	  	</if> 
+  	  		<if test="hmd != null" >
+  	 		   and    HMD  like '%'|| #{hmd}  ||'%'      
+  	  	</if> 
+  	  		<if test="dtype != null" > 
+  	 		   and    DTYPE  = #{dtype}  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 		   and    DEPARTMENT  LIKE '%'|| #{department}  ||'%'     
+  	  	</if>
+  	  	  	<if test="departmentid != null" >
+  	 		   and   ( DEPARTMENTID  = #{departmentid}  or   ( zfcdepartmentid  = #{zfcdepartmentid}    )   )
+  	  	</if> 
+  	  	 	<if test="cdepartmentid != null" >
+  	 		   and   ( CDEPARTMENTID  = #{cdepartmentid}  or   ( zfcdepartmentid  = #{zfcdepartmentid}    )   )
+  	  	</if> 
+  	  	
+  	  	<if test="name != null" > 
+  	 		   and    name  like '%'|| #{name}  ||'%'      
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		    and     ORRURDATE  >= #{createdate}  
+  	  	</if>  
+  	  	<if test="modifydate != null" > 
+  	 		     and   ORRURDATE  &lt; = #{modifydate}  
+  	  	</if>
+  	  	</where>
+</select>
+	
+	<select id="selectByGroup" resultMap="BaseResultMap" parameterType="com.sn.entity.Problemdata" >
+ select department,departmentid,count(cdepartment) as score from BU_PROBLEMDATA
+  <where>    
+        (CDEPARTMENTID is not null and  DEPARTMENTID is not null)
+  		<if test="createdate != null" >
+  	 		    and     CREATEDATE  >= #{createdate}  
+  	  	</if> 
+  	  	<if test="modifydate != null" > 
+  	 		     and   CREATEDATE &lt; = #{modifydate}  
+  	  	</if>
+  	  		  
+  </where> 
+    group by department,departmentid  order by (select sortcode  from base_organize where layer=2 and fuid=departmentid)
+</select>
+
+<select id="countByColumDay" resultType="java.lang.Integer" parameterType="com.sn.entity.Problemdata" >
+select count(*) from BU_PROBLEMDATA
+ <where>  
+  (createdate>=add_months(sysdate,-3)  and (CDEPARTMENTID is not null and  DEPARTMENTID is not null))
+  	<if test="cdepartmentid != null" > 
+  	 		     and   CDEPARTMENTID  = #{cdepartmentid}  
+  	  	</if>
+  
+ </where> 
+</select>
+		
+		
+<select id="countByScore" resultType="java.lang.Integer" parameterType="com.sn.entity.Problemdata" >
+select sum(SCORE) from    bu_problemdata   
+ <where>  
+ 	   (CDEPARTMENTID is not null and  DEPARTMENTID is not null)
+  	<if test="cdepartmentid != null" > 
+  	 		   and     CDEPARTMENTID  = #{cdepartmentid}  
+  	  	</if>
+  	  		<if test="jtype != null" > 
+  	 		     and   JTYPE  = #{jtype}  
+  	  	</if>
+ </where> 
+  group by CDEPARTMENTID
+</select>
+	
+
+
+
+	
+</mapper>

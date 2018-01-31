@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.PoliceofficerMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.Policeofficer" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="name" column="NAME"  jdbcType="VARCHAR" />
+        <result property="createdate" column="CREATEDATE"  jdbcType="DATE" />
+        <result property="policenum" column="POLICENUM"  jdbcType="VARCHAR" />
+        <result property="inside" column="INSIDE"  jdbcType="VARCHAR" />
+        <result property="duties" column="DUTIES"  jdbcType="VARCHAR" />
+        <result property="outside" column="OUTSIDE"  jdbcType="VARCHAR" />
+        <result property="cornet" column="CORNET"  jdbcType="VARCHAR" />
+        <result property="email" column="EMAIL"  jdbcType="VARCHAR" />
+        <result property="iphone" column="IPHONE"  jdbcType="VARCHAR" />
+        <result property="roomnumber" column="ROOMNUMBER"  jdbcType="CHAR" />
+        <result property="fax" column="FAX"  jdbcType="VARCHAR" />
+        <result property="unit" column="UNIT"  jdbcType="VARCHAR" />
+        <result property="unitid" column="UNITID"  jdbcType="VARCHAR" />
+        <result property="idcard" column="IDCARD"  jdbcType="VARCHAR" />
+        <result property="modifydate" column="MODIFYDATE"  jdbcType="DATE" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         NAME ,
+         CREATEDATE ,
+         POLICENUM ,
+         INSIDE ,
+         DUTIES ,
+         OUTSIDE ,
+         CORNET ,
+         EMAIL ,
+         IPHONE ,
+         ROOMNUMBER ,
+         FAX ,
+         UNIT ,
+         UNITID ,
+         IDCARD ,
+         MODIFYDATE 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from BU_POLICEOFFICER
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from BU_POLICEOFFICER
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.Policeofficer" >
+    
+         insert into BU_POLICEOFFICER ( 
+         		FUID , 
+         	          		NAME , 
+         	          		CREATEDATE , 
+         	          		POLICENUM , 
+         	          		INSIDE , 
+         	          		DUTIES , 
+         	          		OUTSIDE , 
+         	          		CORNET , 
+         	          		EMAIL , 
+         	          		IPHONE , 
+         	          		ROOMNUMBER , 
+         	          		FAX , 
+         	          		UNIT , 
+         	          		UNITID , 
+         	          		IDCARD , 
+         	          		MODIFYDATE  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{name,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=DATE} , 
+   	 	   	 		#{policenum,jdbcType=VARCHAR} , 
+   	 	   	 		#{inside,jdbcType=VARCHAR} , 
+   	 	   	 		#{duties,jdbcType=VARCHAR} , 
+   	 	   	 		#{outside,jdbcType=VARCHAR} , 
+   	 	   	 		#{cornet,jdbcType=VARCHAR} , 
+   	 	   	 		#{email,jdbcType=VARCHAR} , 
+   	 	   	 		#{iphone,jdbcType=VARCHAR} , 
+   	 	   	 		#{roomnumber,jdbcType=CHAR} , 
+   	 	   	 		#{fax,jdbcType=VARCHAR} , 
+   	 	   	 		#{unit,jdbcType=VARCHAR} , 
+   	 	   	 		#{unitid,jdbcType=VARCHAR} , 
+   	 	   	 		#{idcard,jdbcType=VARCHAR} , 
+   	 	   	 		#{modifydate,jdbcType=DATE}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.Policeofficer">
+  	  insert into  BU_POLICEOFFICER
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 	  NAME ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  CREATEDATE ,  
+  	  	</if>
+  	  	<if test="policenum != null" >
+  	 	  POLICENUM ,  
+  	  	</if>
+  	  	<if test="inside != null" >
+  	 	  INSIDE ,  
+  	  	</if>
+  	  	<if test="duties != null" >
+  	 	  DUTIES ,  
+  	  	</if>
+  	  	<if test="outside != null" >
+  	 	  OUTSIDE ,  
+  	  	</if>
+  	  	<if test="cornet != null" >
+  	 	  CORNET ,  
+  	  	</if>
+  	  	<if test="email != null" >
+  	 	  EMAIL ,  
+  	  	</if>
+  	  	<if test="iphone != null" >
+  	 	  IPHONE ,  
+  	  	</if>
+  	  	<if test="roomnumber != null" >
+  	 	  ROOMNUMBER ,  
+  	  	</if>
+  	  	<if test="fax != null" >
+  	 	  FAX ,  
+  	  	</if>
+  	  	<if test="unit != null" >
+  	 	  UNIT ,  
+  	  	</if>
+  	  	<if test="unitid != null" >
+  	 	  UNITID ,  
+  	  	</if>
+  	  	<if test="idcard != null" >
+  	 	  IDCARD ,  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 	  MODIFYDATE   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="name != null" >
+        	#{name,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=DATE} , 
+       </if>
+    	<if test="policenum != null" >
+        	#{policenum,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="inside != null" >
+        	#{inside,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="duties != null" >
+        	#{duties,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="outside != null" >
+        	#{outside,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="cornet != null" >
+        	#{cornet,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="email != null" >
+        	#{email,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="iphone != null" >
+        	#{iphone,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="roomnumber != null" >
+        	#{roomnumber,jdbcType=CHAR} , 
+       </if>
+    	<if test="fax != null" >
+        	#{fax,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="unit != null" >
+        	#{unit,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="unitid != null" >
+        	#{unitid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="idcard != null" >
+        	#{idcard,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifydate != null" >
+        	#{modifydate,jdbcType=DATE}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.Policeofficer" >
+    update  BU_POLICEOFFICER
+    <set >
+    	<if test="name != null" >
+        	  NAME=#{name,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  CREATEDATE=#{createdate,jdbcType=DATE} , 
+       </if>
+    	<if test="policenum != null" >
+        	  POLICENUM=#{policenum,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="inside != null" >
+        	  INSIDE=#{inside,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="duties != null" >
+        	  DUTIES=#{duties,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="outside != null" >
+        	  OUTSIDE=#{outside,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="cornet != null" >
+        	  CORNET=#{cornet,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="email != null" >
+        	  EMAIL=#{email,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="iphone != null" >
+        	  IPHONE=#{iphone,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="roomnumber != null" >
+        	  ROOMNUMBER=#{roomnumber,jdbcType=CHAR} , 
+       </if>
+    	<if test="fax != null" >
+        	  FAX=#{fax,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="unit != null" >
+        	  UNIT=#{unit,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="unitid != null" >
+        	  UNITID=#{unitid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="idcard != null" >
+        	  IDCARD=#{idcard,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifydate != null" >
+        	  MODIFYDATE=#{modifydate,jdbcType=DATE}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.Policeofficer" >
+    update BU_POLICEOFFICER
+    set 
+        	  NAME=#{name,jdbcType=VARCHAR} , 
+        	  CREATEDATE=#{createdate,jdbcType=DATE} , 
+        	  POLICENUM=#{policenum,jdbcType=VARCHAR} , 
+        	  INSIDE=#{inside,jdbcType=VARCHAR} , 
+        	  DUTIES=#{duties,jdbcType=VARCHAR} , 
+        	  OUTSIDE=#{outside,jdbcType=VARCHAR} , 
+        	  CORNET=#{cornet,jdbcType=VARCHAR} , 
+        	  EMAIL=#{email,jdbcType=VARCHAR} , 
+        	  IPHONE=#{iphone,jdbcType=VARCHAR} , 
+        	  ROOMNUMBER=#{roomnumber,jdbcType=CHAR} , 
+        	  FAX=#{fax,jdbcType=VARCHAR} , 
+        	  UNIT=#{unit,jdbcType=VARCHAR} , 
+        	  UNITID=#{unitid,jdbcType=VARCHAR} , 
+        	  IDCARD=#{idcard,jdbcType=VARCHAR} , 
+        	  MODIFYDATE=#{modifydate,jdbcType=DATE}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.Policeofficer" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_POLICEOFFICER
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="policenum != null" >
+  	 		   and    POLICENUM  = #{policenum}  
+  	  	</if>
+  	  	<if test="inside != null" >
+  	 		   and    INSIDE  = #{inside}  
+  	  	</if>
+  	  	<if test="duties != null" >
+  	 		   and    DUTIES  = #{duties}  
+  	  	</if>
+  	  	<if test="outside != null" >
+  	 		   and    OUTSIDE  = #{outside}  
+  	  	</if>
+  	  	<if test="cornet != null" >
+  	 		   and    CORNET  = #{cornet}  
+  	  	</if>
+  	  	<if test="email != null" >
+  	 		   and    EMAIL  = #{email}  
+  	  	</if>
+  	  	<if test="iphone != null" >
+  	 		   and    IPHONE  = #{iphone}  
+  	  	</if>
+  	  	<if test="roomnumber != null" >
+  	 		   and    ROOMNUMBER  = #{roomnumber}  
+  	  	</if>
+  	  	<if test="fax != null" >
+  	 		   and    FAX  = #{fax}  
+  	  	</if>
+  	  	<if test="unit != null" >
+  	 		   and    UNIT  = #{unit}  
+  	  	</if>
+  	  	<if test="unitid != null" >
+  	 		   and    UNITID  = #{unitid}  
+  	  	</if>
+  	  	<if test="idcard != null" >
+  	 		   and    IDCARD  = #{idcard}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.Policeofficer">  
+    DELETE FROM BU_POLICEOFFICER  
+      <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="policenum != null" >
+  	 		   and    POLICENUM  = #{policenum}  
+  	  	</if>
+  	  	<if test="inside != null" >
+  	 		   and    INSIDE  = #{inside}  
+  	  	</if>
+  	  	<if test="duties != null" >
+  	 		   and    DUTIES  = #{duties}  
+  	  	</if>
+  	  	<if test="outside != null" >
+  	 		   and    OUTSIDE  = #{outside}  
+  	  	</if>
+  	  	<if test="cornet != null" >
+  	 		   and    CORNET  = #{cornet}  
+  	  	</if>
+  	  	<if test="email != null" >
+  	 		   and    EMAIL  = #{email}  
+  	  	</if>
+  	  	<if test="iphone != null" >
+  	 		   and    IPHONE  = #{iphone}  
+  	  	</if>
+  	  	<if test="roomnumber != null" >
+  	 		   and    ROOMNUMBER  = #{roomnumber}  
+  	  	</if>
+  	  	<if test="fax != null" >
+  	 		   and    FAX  = #{fax}  
+  	  	</if>
+  	  	<if test="unit != null" >
+  	 		   and    UNIT  = #{unit}  
+  	  	</if>
+  	  	<if test="unitid != null" >
+  	 		   and    UNITID  = #{unitid}  
+  	  	</if>
+  	  	<if test="idcard != null" >
+  	 		   and    IDCARD  = #{idcard}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  BU_POLICEOFFICER WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.Policeofficer" >
+select count(*) from BU_POLICEOFFICER
+ <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="policenum != null" >
+  	 		   and    POLICENUM  = #{policenum}  
+  	  	</if>
+  	  	<if test="inside != null" >
+  	 		   and    INSIDE  = #{inside}  
+  	  	</if>
+  	  	<if test="duties != null" >
+  	 		   and    DUTIES  = #{duties}  
+  	  	</if>
+  	  	<if test="outside != null" >
+  	 		   and    OUTSIDE  = #{outside}  
+  	  	</if>
+  	  	<if test="cornet != null" >
+  	 		   and    CORNET  = #{cornet}  
+  	  	</if>
+  	  	<if test="email != null" >
+  	 		   and    EMAIL  = #{email}  
+  	  	</if>
+  	  	<if test="iphone != null" >
+  	 		   and    IPHONE  = #{iphone}  
+  	  	</if>
+  	  	<if test="roomnumber != null" >
+  	 		   and    ROOMNUMBER  = #{roomnumber}  
+  	  	</if>
+  	  	<if test="fax != null" >
+  	 		   and    FAX  = #{fax}  
+  	  	</if>
+  	  	<if test="unit != null" >
+  	 		   and    UNIT  = #{unit}  
+  	  	</if>
+  	  	<if test="unitid != null" >
+  	 		   and    UNITID  = #{unitid}  
+  	  	</if>
+  	  	<if test="idcard != null" >
+  	 		   and    IDCARD  = #{idcard}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from BU_POLICEOFFICER 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+   <select  id="selectLikeColum"  resultMap="BaseResultMap" parameterType="com.sn.entity.Policeofficer"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from BU_POLICEOFFICER    
+     <where>  
+		 <if test="name != null" >
+  	 		      NAME  LIKE '%'|| #{name}||'%'    
+  	  	</if>  
+  	  </where>	
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.Policeofficer" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_POLICEOFFICER
+      <where>  
+		 <if test="name != null" >
+  	 		      NAME  LIKE '%'|| #{name}||'%'    
+  	  	</if>
+  	  	<if test="policenum != null" >
+  	 		   or    POLICENUM  LIKE '%'|| #{policenum}||'%'    
+  	  	</if>
+  	  	<if test="iphone != null" >
+  	 		   or    IPHONE  LIKE '%'|| #{iphone}||'%'   
+  	  	</if>
+  	  	</where>
+	</select>
+	
+	
+</mapper>

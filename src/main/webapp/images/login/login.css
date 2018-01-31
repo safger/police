@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+body{ background:url(../../images/login/loginbj.jpg) repeat-x ;margin:0 auto; }
+#login{ width:974px; margin:0 auto; background:url(../../images/login/logincenter.jpg) no-repeat top;}
+#center{ width:500px; padding-top:240px; padding-left:140px; padding-right:140px; padding-bottom:240px; margin:0 auto;}
+#text{ padding-top:60px; padding-left:100px; padding-right:100px; font-family:"宋体"; font-size:14px;}
+#logo{ font-family:"宋体"; font-size:32px;}
+#anniu{ padding-left:176px; padding-right:100px;}
+#text table{ padding-bottom:5px;}
+#text table input{-moz-border-radius:5px; width:150px; border:1px solid #ccc; height:22px; }
+#wangji li{ list-style:url(../../images/login/wangjili.jpg); font-size:12px; font-family:"宋体";}
+#wangji li a{ color:#4270c4; text-decoration:none;}
+#wangji{ padding-left:150px; }
+#sugdiv { padding-left:130px; font-size:12px; font-family:"宋体";}
+.buttoncss {
+	background:url(../../images/login/button.png);
+	padding-top:3px;
+	font:14px bold;
+	color:#000000;
+	height: 27px;
+	width: 75px;
+	border: none;
+}

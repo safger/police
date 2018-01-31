@@ -1,0 +1,4 @@
+1.BU_SCORING  新增2字段
+2.数据字典新增类型
+
+3.ProblemdataMapper.xml   InspectorMapper.xml 改写countByColum

@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.RiskMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.Risk" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="name" column="NAME"  jdbcType="VARCHAR" />
+        <result property="createdate" column="CREATEDATE"  jdbcType="TIMESTAMP" />
+        <result property="duties" column="DUTIES"  jdbcType="VARCHAR" />
+        <result property="modifydate" column="MODIFYDATE"  jdbcType="TIMESTAMP" />
+        <result property="unit" column="UNIT"  jdbcType="VARCHAR" />
+        <result property="responsibilities" column="RESPONSIBILITIES"  jdbcType="VARCHAR" />
+        <result property="srisk" column="SRISK"  jdbcType="VARCHAR" />
+        <result property="sriskprevention" column="SRISKPREVENTION"  jdbcType="VARCHAR" />
+        <result property="zrisk" column="ZRISK"  jdbcType="VARCHAR" />
+        <result property="zriskprevention" column="ZRISKPREVENTION"  jdbcType="VARCHAR" />
+        <result property="drisk" column="DRISK"  jdbcType="VARCHAR" />
+        <result property="driskprevention" column="DRISKPREVENTION"  jdbcType="VARCHAR" />
+        <result property="jrisk" column="JRISK"  jdbcType="VARCHAR" />
+        <result property="jriskprevention" column="JRISKPREVENTION"  jdbcType="VARCHAR" />
+        <result property="perid" column="PERID"  jdbcType="VARCHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         NAME ,
+         CREATEDATE ,
+         DUTIES ,
+         MODIFYDATE ,
+         UNIT ,
+         RESPONSIBILITIES ,
+         SRISK ,
+         SRISKPREVENTION ,
+         ZRISK ,
+         ZRISKPREVENTION ,
+         DRISK ,
+         DRISKPREVENTION ,
+         JRISK ,
+         JRISKPREVENTION ,
+         PERID 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from BU_RISK
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from BU_RISK
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.Risk" >
+    
+         insert into BU_RISK ( 
+         		FUID , 
+         	          		NAME , 
+         	          		CREATEDATE , 
+         	          		DUTIES , 
+         	          		MODIFYDATE , 
+         	          		UNIT , 
+         	          		RESPONSIBILITIES , 
+         	          		SRISK , 
+         	          		SRISKPREVENTION , 
+         	          		ZRISK , 
+         	          		ZRISKPREVENTION , 
+         	          		DRISK , 
+         	          		DRISKPREVENTION , 
+         	          		JRISK , 
+         	          		JRISKPREVENTION , 
+         	          		PERID  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{name,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{duties,jdbcType=VARCHAR} , 
+   	 	   	 		#{modifydate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{unit,jdbcType=VARCHAR} , 
+   	 	   	 		#{responsibilities,jdbcType=VARCHAR} , 
+   	 	   	 		#{srisk,jdbcType=VARCHAR} , 
+   	 	   	 		#{sriskprevention,jdbcType=VARCHAR} , 
+   	 	   	 		#{zrisk,jdbcType=VARCHAR} , 
+   	 	   	 		#{zriskprevention,jdbcType=VARCHAR} , 
+   	 	   	 		#{drisk,jdbcType=VARCHAR} , 
+   	 	   	 		#{driskprevention,jdbcType=VARCHAR} , 
+   	 	   	 		#{jrisk,jdbcType=VARCHAR} , 
+   	 	   	 		#{jriskprevention,jdbcType=VARCHAR} , 
+   	 	   	 		#{perid,jdbcType=VARCHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.Risk">
+  	  insert into  BU_RISK
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 	  NAME ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  CREATEDATE ,  
+  	  	</if>
+  	  	<if test="duties != null" >
+  	 	  DUTIES ,  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 	  MODIFYDATE ,  
+  	  	</if>
+  	  	<if test="unit != null" >
+  	 	  UNIT ,  
+  	  	</if>
+  	  	<if test="responsibilities != null" >
+  	 	  RESPONSIBILITIES ,  
+  	  	</if>
+  	  	<if test="srisk != null" >
+  	 	  SRISK ,  
+  	  	</if>
+  	  	<if test="sriskprevention != null" >
+  	 	  SRISKPREVENTION ,  
+  	  	</if>
+  	  	<if test="zrisk != null" >
+  	 	  ZRISK ,  
+  	  	</if>
+  	  	<if test="zriskprevention != null" >
+  	 	  ZRISKPREVENTION ,  
+  	  	</if>
+  	  	<if test="drisk != null" >
+  	 	  DRISK ,  
+  	  	</if>
+  	  	<if test="driskprevention != null" >
+  	 	  DRISKPREVENTION ,  
+  	  	</if>
+  	  	<if test="jrisk != null" >
+  	 	  JRISK ,  
+  	  	</if>
+  	  	<if test="jriskprevention != null" >
+  	 	  JRISKPREVENTION ,  
+  	  	</if>
+  	  	<if test="perid != null" >
+  	 	  PERID   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="name != null" >
+        	#{name,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="duties != null" >
+        	#{duties,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifydate != null" >
+        	#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="unit != null" >
+        	#{unit,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="responsibilities != null" >
+        	#{responsibilities,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="srisk != null" >
+        	#{srisk,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sriskprevention != null" >
+        	#{sriskprevention,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zrisk != null" >
+        	#{zrisk,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zriskprevention != null" >
+        	#{zriskprevention,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="drisk != null" >
+        	#{drisk,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="driskprevention != null" >
+        	#{driskprevention,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="jrisk != null" >
+        	#{jrisk,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="jriskprevention != null" >
+        	#{jriskprevention,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="perid != null" >
+        	#{perid,jdbcType=VARCHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.Risk" >
+    update  BU_RISK
+    <set >
+    	<if test="name != null" >
+        	  NAME=#{name,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="duties != null" >
+        	  DUTIES=#{duties,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifydate != null" >
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="unit != null" >
+        	  UNIT=#{unit,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="responsibilities != null" >
+        	  RESPONSIBILITIES=#{responsibilities,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="srisk != null" >
+        	  SRISK=#{srisk,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sriskprevention != null" >
+        	  SRISKPREVENTION=#{sriskprevention,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zrisk != null" >
+        	  ZRISK=#{zrisk,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zriskprevention != null" >
+        	  ZRISKPREVENTION=#{zriskprevention,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="drisk != null" >
+        	  DRISK=#{drisk,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="driskprevention != null" >
+        	  DRISKPREVENTION=#{driskprevention,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="jrisk != null" >
+        	  JRISK=#{jrisk,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="jriskprevention != null" >
+        	  JRISKPREVENTION=#{jriskprevention,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="perid != null" >
+        	  PERID=#{perid,jdbcType=VARCHAR}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.Risk" >
+    update BU_RISK
+    set 
+        	  NAME=#{name,jdbcType=VARCHAR} , 
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+        	  DUTIES=#{duties,jdbcType=VARCHAR} , 
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+        	  UNIT=#{unit,jdbcType=VARCHAR} , 
+        	  RESPONSIBILITIES=#{responsibilities,jdbcType=VARCHAR} , 
+        	  SRISK=#{srisk,jdbcType=VARCHAR} , 
+        	  SRISKPREVENTION=#{sriskprevention,jdbcType=VARCHAR} , 
+        	  ZRISK=#{zrisk,jdbcType=VARCHAR} , 
+        	  ZRISKPREVENTION=#{zriskprevention,jdbcType=VARCHAR} , 
+        	  DRISK=#{drisk,jdbcType=VARCHAR} , 
+        	  DRISKPREVENTION=#{driskprevention,jdbcType=VARCHAR} , 
+        	  JRISK=#{jrisk,jdbcType=VARCHAR} , 
+        	  JRISKPREVENTION=#{jriskprevention,jdbcType=VARCHAR} , 
+        	  PERID=#{perid,jdbcType=VARCHAR}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.Risk" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_RISK
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="duties != null" >
+  	 		   and    DUTIES  = #{duties}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="unit != null" >
+  	 		   and    UNIT  = #{unit}  
+  	  	</if>
+  	  	<if test="responsibilities != null" >
+  	 		   and    RESPONSIBILITIES  = #{responsibilities}  
+  	  	</if>
+  	  	<if test="srisk != null" >
+  	 		   and    SRISK  = #{srisk}  
+  	  	</if>
+  	  	<if test="sriskprevention != null" >
+  	 		   and    SRISKPREVENTION  = #{sriskprevention}  
+  	  	</if>
+  	  	<if test="zrisk != null" >
+  	 		   and    ZRISK  = #{zrisk}  
+  	  	</if>
+  	  	<if test="zriskprevention != null" >
+  	 		   and    ZRISKPREVENTION  = #{zriskprevention}  
+  	  	</if>
+  	  	<if test="drisk != null" >
+  	 		   and    DRISK  = #{drisk}  
+  	  	</if>
+  	  	<if test="driskprevention != null" >
+  	 		   and    DRISKPREVENTION  = #{driskprevention}  
+  	  	</if>
+  	  	<if test="jrisk != null" >
+  	 		   and    JRISK  = #{jrisk}  
+  	  	</if>
+  	  	<if test="jriskprevention != null" >
+  	 		   and    JRISKPREVENTION  = #{jriskprevention}  
+  	  	</if>
+  	  	<if test="perid != null" >
+  	 		   and    PERID  = #{perid}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.Risk">  
+    DELETE FROM BU_RISK  
+      <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="duties != null" >
+  	 		   and    DUTIES  = #{duties}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="unit != null" >
+  	 		   and    UNIT  = #{unit}  
+  	  	</if>
+  	  	<if test="responsibilities != null" >
+  	 		   and    RESPONSIBILITIES  = #{responsibilities}  
+  	  	</if>
+  	  	<if test="srisk != null" >
+  	 		   and    SRISK  = #{srisk}  
+  	  	</if>
+  	  	<if test="sriskprevention != null" >
+  	 		   and    SRISKPREVENTION  = #{sriskprevention}  
+  	  	</if>
+  	  	<if test="zrisk != null" >
+  	 		   and    ZRISK  = #{zrisk}  
+  	  	</if>
+  	  	<if test="zriskprevention != null" >
+  	 		   and    ZRISKPREVENTION  = #{zriskprevention}  
+  	  	</if>
+  	  	<if test="drisk != null" >
+  	 		   and    DRISK  = #{drisk}  
+  	  	</if>
+  	  	<if test="driskprevention != null" >
+  	 		   and    DRISKPREVENTION  = #{driskprevention}  
+  	  	</if>
+  	  	<if test="jrisk != null" >
+  	 		   and    JRISK  = #{jrisk}  
+  	  	</if>
+  	  	<if test="jriskprevention != null" >
+  	 		   and    JRISKPREVENTION  = #{jriskprevention}  
+  	  	</if>
+  	  	<if test="perid != null" >
+  	 		   and    PERID  = #{perid}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  BU_RISK WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.Risk" >
+select count(*) from BU_RISK
+ <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="duties != null" >
+  	 		   and    DUTIES  = #{duties}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="unit != null" >
+  	 		   and    UNIT  = #{unit}  
+  	  	</if>
+  	  	<if test="responsibilities != null" >
+  	 		   and    RESPONSIBILITIES  = #{responsibilities}  
+  	  	</if>
+  	  	<if test="srisk != null" >
+  	 		   and    SRISK  = #{srisk}  
+  	  	</if>
+  	  	<if test="sriskprevention != null" >
+  	 		   and    SRISKPREVENTION  = #{sriskprevention}  
+  	  	</if>
+  	  	<if test="zrisk != null" >
+  	 		   and    ZRISK  = #{zrisk}  
+  	  	</if>
+  	  	<if test="zriskprevention != null" >
+  	 		   and    ZRISKPREVENTION  = #{zriskprevention}  
+  	  	</if>
+  	  	<if test="drisk != null" >
+  	 		   and    DRISK  = #{drisk}  
+  	  	</if>
+  	  	<if test="driskprevention != null" >
+  	 		   and    DRISKPREVENTION  = #{driskprevention}  
+  	  	</if>
+  	  	<if test="jrisk != null" >
+  	 		   and    JRISK  = #{jrisk}  
+  	  	</if>
+  	  	<if test="jriskprevention != null" >
+  	 		   and    JRISKPREVENTION  = #{jriskprevention}  
+  	  	</if>
+  	  	<if test="perid != null" >
+  	 		   and    PERID  = #{perid}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from BU_RISK 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from BU_RISK where  
+     #{0}   LIKE '%'|| #{1}||'%'    
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.Risk" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_RISK
+      <where>  
+		 
+  	  	</where>
+	</select>
+	
+</mapper>

@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.TrafficMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.Traffic" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="id" column="ID"  jdbcType="DECIMAL" />
+        <result property="tdate" column="TDATE"  jdbcType="TIMESTAMP" />
+        <result property="licenseplate" column="LICENSEPLATE"  jdbcType="VARCHAR" />
+        <result property="card" column="CARD"  jdbcType="VARCHAR" />
+        <result property="readertime" column="READERTIME"  jdbcType="TIMESTAMP" />
+        <result property="accesstype" column="ACCESSTYPE"  jdbcType="VARCHAR" />
+        <result property="vehicletype" column="VEHICLETYPE"  jdbcType="VARCHAR" />
+        <result property="vehiclecolor" column="VEHICLECOLOR"  jdbcType="VARCHAR" />
+        <result property="passtype" column="PASSTYPE"  jdbcType="VARCHAR" />
+        <result property="parktype" column="PARKTYPE"  jdbcType="VARCHAR" />
+        <result property="gateway" column="GATEWAY"  jdbcType="VARCHAR" />
+        <result property="lanename" column="LANENAME"  jdbcType="VARCHAR" />
+        <result property="parkid" column="PARKID"  jdbcType="DECIMAL" />
+        <result property="carimg" column="CARIMG"  jdbcType="VARCHAR" />
+        <result property="brandimg" column="BRANDIMG"  jdbcType="VARCHAR" />
+        <result property="createdate" column="CREATEDATE"  jdbcType="TIMESTAMP" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         ID ,
+         TDATE ,
+         LICENSEPLATE ,
+         CARD ,
+         READERTIME ,
+         ACCESSTYPE ,
+         VEHICLETYPE ,
+         VEHICLECOLOR ,
+         PASSTYPE ,
+         PARKTYPE ,
+         GATEWAY ,
+         LANENAME ,
+         PARKID ,
+         CARIMG ,
+         BRANDIMG ,
+         CREATEDATE 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from BU_TRAFFIC
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from BU_TRAFFIC
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.Traffic" >
+    
+         insert into BU_TRAFFIC ( 
+         		FUID , 
+         	          		ID , 
+         	          		TDATE , 
+         	          		LICENSEPLATE , 
+         	          		CARD , 
+         	          		READERTIME , 
+         	          		ACCESSTYPE , 
+         	          		VEHICLETYPE , 
+         	          		VEHICLECOLOR , 
+         	          		PASSTYPE , 
+         	          		PARKTYPE , 
+         	          		GATEWAY , 
+         	          		LANENAME , 
+         	          		PARKID , 
+         	          		CARIMG , 
+         	          		BRANDIMG , 
+         	          		CREATEDATE  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{id,jdbcType=DECIMAL} , 
+   	 	   	 		#{tdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{licenseplate,jdbcType=VARCHAR} , 
+   	 	   	 		#{card,jdbcType=VARCHAR} , 
+   	 	   	 		#{readertime,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{accesstype,jdbcType=VARCHAR} , 
+   	 	   	 		#{vehicletype,jdbcType=VARCHAR} , 
+   	 	   	 		#{vehiclecolor,jdbcType=VARCHAR} , 
+   	 	   	 		#{passtype,jdbcType=VARCHAR} , 
+   	 	   	 		#{parktype,jdbcType=VARCHAR} , 
+   	 	   	 		#{gateway,jdbcType=VARCHAR} , 
+   	 	   	 		#{lanename,jdbcType=VARCHAR} , 
+   	 	   	 		#{parkid,jdbcType=DECIMAL} , 
+   	 	   	 		#{carimg,jdbcType=VARCHAR} , 
+   	 	   	 		#{brandimg,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.Traffic">
+  	  insert into  BU_TRAFFIC
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="id != null" >
+  	 	  ID ,  
+  	  	</if>
+  	  	<if test="tdate != null" >
+  	 	  TDATE ,  
+  	  	</if>
+  	  	<if test="licenseplate != null" >
+  	 	  LICENSEPLATE ,  
+  	  	</if>
+  	  	<if test="card != null" >
+  	 	  CARD ,  
+  	  	</if>
+  	  	<if test="readertime != null" >
+  	 	  READERTIME ,  
+  	  	</if>
+  	  	<if test="accesstype != null" >
+  	 	  ACCESSTYPE ,  
+  	  	</if>
+  	  	<if test="vehicletype != null" >
+  	 	  VEHICLETYPE ,  
+  	  	</if>
+  	  	<if test="vehiclecolor != null" >
+  	 	  VEHICLECOLOR ,  
+  	  	</if>
+  	  	<if test="passtype != null" >
+  	 	  PASSTYPE ,  
+  	  	</if>
+  	  	<if test="parktype != null" >
+  	 	  PARKTYPE ,  
+  	  	</if>
+  	  	<if test="gateway != null" >
+  	 	  GATEWAY ,  
+  	  	</if>
+  	  	<if test="lanename != null" >
+  	 	  LANENAME ,  
+  	  	</if>
+  	  	<if test="parkid != null" >
+  	 	  PARKID ,  
+  	  	</if>
+  	  	<if test="carimg != null" >
+  	 	  CARIMG ,  
+  	  	</if>
+  	  	<if test="brandimg != null" >
+  	 	  BRANDIMG ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  CREATEDATE   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="id != null" >
+        	#{id,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="tdate != null" >
+        	#{tdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="licenseplate != null" >
+        	#{licenseplate,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="card != null" >
+        	#{card,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="readertime != null" >
+        	#{readertime,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="accesstype != null" >
+        	#{accesstype,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="vehicletype != null" >
+        	#{vehicletype,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="vehiclecolor != null" >
+        	#{vehiclecolor,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="passtype != null" >
+        	#{passtype,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="parktype != null" >
+        	#{parktype,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="gateway != null" >
+        	#{gateway,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="lanename != null" >
+        	#{lanename,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="parkid != null" >
+        	#{parkid,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="carimg != null" >
+        	#{carimg,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="brandimg != null" >
+        	#{brandimg,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.Traffic" >
+    update  BU_TRAFFIC
+    <set >
+    	<if test="id != null" >
+        	  ID=#{id,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="tdate != null" >
+        	  TDATE=#{tdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="licenseplate != null" >
+        	  LICENSEPLATE=#{licenseplate,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="card != null" >
+        	  CARD=#{card,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="readertime != null" >
+        	  READERTIME=#{readertime,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="accesstype != null" >
+        	  ACCESSTYPE=#{accesstype,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="vehicletype != null" >
+        	  VEHICLETYPE=#{vehicletype,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="vehiclecolor != null" >
+        	  VEHICLECOLOR=#{vehiclecolor,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="passtype != null" >
+        	  PASSTYPE=#{passtype,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="parktype != null" >
+        	  PARKTYPE=#{parktype,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="gateway != null" >
+        	  GATEWAY=#{gateway,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="lanename != null" >
+        	  LANENAME=#{lanename,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="parkid != null" >
+        	  PARKID=#{parkid,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="carimg != null" >
+        	  CARIMG=#{carimg,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="brandimg != null" >
+        	  BRANDIMG=#{brandimg,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.Traffic" >
+    update BU_TRAFFIC
+    set 
+        	  ID=#{id,jdbcType=DECIMAL} , 
+        	  TDATE=#{tdate,jdbcType=TIMESTAMP} , 
+        	  LICENSEPLATE=#{licenseplate,jdbcType=VARCHAR} , 
+        	  CARD=#{card,jdbcType=VARCHAR} , 
+        	  READERTIME=#{readertime,jdbcType=TIMESTAMP} , 
+        	  ACCESSTYPE=#{accesstype,jdbcType=VARCHAR} , 
+        	  VEHICLETYPE=#{vehicletype,jdbcType=VARCHAR} , 
+        	  VEHICLECOLOR=#{vehiclecolor,jdbcType=VARCHAR} , 
+        	  PASSTYPE=#{passtype,jdbcType=VARCHAR} , 
+        	  PARKTYPE=#{parktype,jdbcType=VARCHAR} , 
+        	  GATEWAY=#{gateway,jdbcType=VARCHAR} , 
+        	  LANENAME=#{lanename,jdbcType=VARCHAR} , 
+        	  PARKID=#{parkid,jdbcType=DECIMAL} , 
+        	  CARIMG=#{carimg,jdbcType=VARCHAR} , 
+        	  BRANDIMG=#{brandimg,jdbcType=VARCHAR} , 
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.Traffic" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_TRAFFIC
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="id != null" >
+  	 		   and    ID  = #{id}  
+  	  	</if>
+  	  	<if test="tdate != null" >
+  	 		   and    TDATE  = #{tdate}  
+  	  	</if>
+  	  	<if test="licenseplate != null" >
+  	 		   and    LICENSEPLATE  = #{licenseplate}  
+  	  	</if>
+  	  	<if test="card != null" >
+  	 		   and    CARD  = #{card}  
+  	  	</if>
+  	  	<if test="readertime != null" >
+  	 		   and    READERTIME  = #{readertime}  
+  	  	</if>
+  	  	<if test="accesstype != null" >
+  	 		   and    ACCESSTYPE  = #{accesstype}  
+  	  	</if>
+  	  	<if test="vehicletype != null" >
+  	 		   and    VEHICLETYPE  = #{vehicletype}  
+  	  	</if>
+  	  	<if test="vehiclecolor != null" >
+  	 		   and    VEHICLECOLOR  = #{vehiclecolor}  
+  	  	</if>
+  	  	<if test="passtype != null" >
+  	 		   and    PASSTYPE  = #{passtype}  
+  	  	</if>
+  	  	<if test="parktype != null" >
+  	 		   and    PARKTYPE  = #{parktype}  
+  	  	</if>
+  	  	<if test="gateway != null" >
+  	 		   and    GATEWAY  = #{gateway}  
+  	  	</if>
+  	  	<if test="lanename != null" >
+  	 		   and    LANENAME  = #{lanename}  
+  	  	</if>
+  	  	<if test="parkid != null" >
+  	 		   and    PARKID  = #{parkid}  
+  	  	</if>
+  	  	<if test="carimg != null" >
+  	 		   and    CARIMG  = #{carimg}  
+  	  	</if>
+  	  	<if test="brandimg != null" >
+  	 		   and    BRANDIMG  = #{brandimg}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.Traffic">  
+    DELETE FROM BU_TRAFFIC  
+      <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="id != null" >
+  	 		   and    ID  = #{id}  
+  	  	</if>
+  	  	<if test="tdate != null" >
+  	 		   and    TDATE  = #{tdate}  
+  	  	</if>
+  	  	<if test="licenseplate != null" >
+  	 		   and    LICENSEPLATE  = #{licenseplate}  
+  	  	</if>
+  	  	<if test="card != null" >
+  	 		   and    CARD  = #{card}  
+  	  	</if>
+  	  	<if test="readertime != null" >
+  	 		   and    READERTIME  = #{readertime}  
+  	  	</if>
+  	  	<if test="accesstype != null" >
+  	 		   and    ACCESSTYPE  = #{accesstype}  
+  	  	</if>
+  	  	<if test="vehicletype != null" >
+  	 		   and    VEHICLETYPE  = #{vehicletype}  
+  	  	</if>
+  	  	<if test="vehiclecolor != null" >
+  	 		   and    VEHICLECOLOR  = #{vehiclecolor}  
+  	  	</if>
+  	  	<if test="passtype != null" >
+  	 		   and    PASSTYPE  = #{passtype}  
+  	  	</if>
+  	  	<if test="parktype != null" >
+  	 		   and    PARKTYPE  = #{parktype}  
+  	  	</if>
+  	  	<if test="gateway != null" >
+  	 		   and    GATEWAY  = #{gateway}  
+  	  	</if>
+  	  	<if test="lanename != null" >
+  	 		   and    LANENAME  = #{lanename}  
+  	  	</if>
+  	  	<if test="parkid != null" >
+  	 		   and    PARKID  = #{parkid}  
+  	  	</if>
+  	  	<if test="carimg != null" >
+  	 		   and    CARIMG  = #{carimg}  
+  	  	</if>
+  	  	<if test="brandimg != null" >
+  	 		   and    BRANDIMG  = #{brandimg}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  BU_TRAFFIC WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.Traffic" >
+select count(*) from BU_TRAFFIC
+ <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="id != null" >
+  	 		   and    ID  = #{id}  
+  	  	</if>
+  	  	<if test="tdate != null" >
+  	 		   and    TDATE  = #{tdate}  
+  	  	</if>
+  	  	<if test="licenseplate != null" >
+  	 		   and    LICENSEPLATE  = #{licenseplate}  
+  	  	</if>
+  	  	<if test="card != null" >
+  	 		   and    CARD  = #{card}  
+  	  	</if>
+  	  	<if test="readertime != null" >
+  	 		   and    READERTIME  = #{readertime}  
+  	  	</if>
+  	  	<if test="accesstype != null" >
+  	 		   and    ACCESSTYPE  = #{accesstype}  
+  	  	</if>
+  	  	<if test="vehicletype != null" >
+  	 		   and    VEHICLETYPE  = #{vehicletype}  
+  	  	</if>
+  	  	<if test="vehiclecolor != null" >
+  	 		   and    VEHICLECOLOR  = #{vehiclecolor}  
+  	  	</if>
+  	  	<if test="passtype != null" >
+  	 		   and    PASSTYPE  = #{passtype}  
+  	  	</if>
+  	  	<if test="parktype != null" >
+  	 		   and    PARKTYPE  = #{parktype}  
+  	  	</if>
+  	  	<if test="gateway != null" >
+  	 		   and    GATEWAY  = #{gateway}  
+  	  	</if>
+  	  	<if test="lanename != null" >
+  	 		   and    LANENAME  = #{lanename}  
+  	  	</if>
+  	  	<if test="parkid != null" >
+  	 		   and    PARKID  = #{parkid}  
+  	  	</if>
+  	  	<if test="carimg != null" >
+  	 		   and    CARIMG  = #{carimg}  
+  	  	</if>
+  	  	<if test="brandimg != null" >
+  	 		   and    BRANDIMG  = #{brandimg}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from BU_TRAFFIC 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from BU_TRAFFIC where   
+     #{0}   LIKE '%'|| #{1}||'%'    
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.Traffic" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_TRAFFIC
+      <where>  
+		 	<if test="licenseplate != null" >
+  	 		        LICENSEPLATE  LIKE '%'|| #{licenseplate}   ||'%'    
+  	  		</if>
+  	  		<if test="tdate != null" >
+  	 		   and    TDATE  >=    #{tdate}
+	  	  	</if> 
+	  	  	<if test="createdate != null" >
+  	 		   and    TDATE   &lt;= #{createdate}  
+  	  		</if> 
+  	  		<if test="accesstype != null" >
+  	 		   and    ACCESSTYPE   = #{accesstype}  
+  	  		</if>
+  	  	</where>
+	</select>
+	
+	<select id="selectByLate" resultMap="BaseResultMap" parameterType="com.sn.entity.Traffic" >
+    select 
+    <include refid="Base_Column_List" />
+    from BU_TRAFFIC
+      <where> 
+      licenseplate!='无车牌' and licenseplate not like '%警%' and licenseplate not like '%Z'
+      <if test="accesstype != null" >
+  	 		   and    ACCESSTYPE   = #{accesstype}  
+  	 		   and ((to_char(TDATE,'HH24:mm:ss') > '08:30:00'
+		and to_char(TDATE,'HH24:mm:ss') &lt;  '12:00:00') or ( to_char(TDATE,'HH24:mm:ss') > '14:30:00'   and to_char(TDATE,'HH24:mm:ss') &lt;  '17:30:00'))
+  	  		</if>
+      	   
+  	  	</where>
+	</select>
+	
+	<select id="selectByProblem" resultMap="BaseResultMap" parameterType="com.sn.entity.Traffic" >
+    
+		with 
+		sql1 as(select * from bu_traffic 
+		 <where>   
+		 	tdate>=(sysdate-31) and  accesstype='出场'   and licenseplate!='无车牌'  and licenseplate not like '%警'  and licenseplate not like '%Z' 
+		 <if test="s1tdate != null" >
+  	 		   and    tdate  >=    #{s1tdate}
+	  	  	</if>  
+	  	  		<if test="createdate != null" >
+  	 		   and    tdate   &lt;= #{createdate}  
+  	  		</if>
+  	  		
+		 </where>
+		  order by licenseplate,tdate desc), 
+		sql2 as (select rownum rn,t.* from bu_traffic t  where accesstype='入场' and licenseplate!='无车牌' and licenseplate not like '%警%' and licenseplate not like '%Z'  order by t.licenseplate,t.tdate desc),
+		sql3 as(select (rank() over(partition by s1.tdate order by s2.tdate)) rank, s2.rn, abs((cast(s1.tdate  AS DATE) -cast(s2.tdate AS DATE))*24) as times,
+		s1.accesstype s1type,s2.accesstype s2type,s2.licenseplate as sl2, cast(s1.tdate  AS DATE) as s1da , 
+		cast(s2.tdate  AS DATE) as s2da ,s1.carimg,s1.brandimg,s1.vehicletype,s1.vehiclecolor 
+		from sql1 s1,sql2 s2 
+		where s2.licenseplate=s1.licenseplate  and s2.tdate>s1.tdate   
+		order by s1.tdate desc,s2.tdate  )
+		
+		 select vehicletype,vehiclecolor,carimg,brandimg,s1type,s2type,trunc(times,1) as jtimes,s1da as s1tdate,s2da as s2tdate,sl2  as licenseplate  from sql3
+		  <where>  
+		  	rank=1 and times>1
+	  	  	<if test="jtimes != null" >
+  	 		   and    trunc(times,1)  >=    #{jtimes}
+	  	  	</if> 
+	  	  	<if test="licenseplate != null" >
+  	 		   and    sl2     LIKE '%'|| #{licenseplate}   ||'%'    
+	  	  	</if> 
+	  	  	 <if test="s2tdate != null" >
+  	 		   and    s2da  >=    #{s2tdate}
+	  	  	</if>   
+	  	  		<if test="tdate!= null" >  
+  	 		   and    s2da   &lt;= #{tdate}   
+  	  		</if>
+  	  	</where>
+	</select>
+</mapper>
